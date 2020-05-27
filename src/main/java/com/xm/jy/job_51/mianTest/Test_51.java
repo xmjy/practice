@@ -8,5 +8,6 @@ package com.xm.jy.job_51.mianTest;
 public class Test_51 {
     public static void main(String[] args) {
         System.out.println("idea can save github user account");
+        System.out.println("if you not save user account in idea,when you commit,you need input username and password every time");
     }
 }
