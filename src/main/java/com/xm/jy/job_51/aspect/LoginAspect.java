@@ -1,8 +1,8 @@
 package com.xm.jy.job_51.aspect;
 
 import com.xm.jy.job_51.exception.LoginException;
-import com.xm.jy.model.User;
-import com.xm.jy.service.UserService;
+import com.xm.jy.job_cx.model.User;
+import com.xm.jy.job_cx.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

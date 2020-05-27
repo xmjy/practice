@@ -1,9 +1,9 @@
 package com.xm.jy;
 
-import com.xm.jy.ioc.entity.ComponentAndBean;
-import com.xm.jy.ioc.entity.People;
-import com.xm.jy.ioc.entity.Person;
-import com.xm.jy.ioc.entity.Pet;
+import com.xm.jy.test.ioc.entity.ComponentAndBean;
+import com.xm.jy.test.ioc.entity.People;
+import com.xm.jy.test.ioc.entity.Person;
+import com.xm.jy.test.ioc.entity.Pet;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 //@EnableScheduling
-@MapperScan(basePackages = "com.xm.jy.dao")
+@MapperScan(basePackages = "com.xm.jy.job_cx.dao")
 public class PracticeApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

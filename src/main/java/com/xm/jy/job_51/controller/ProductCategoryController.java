@@ -2,8 +2,8 @@ package com.xm.jy.job_51.controller;
 
 import com.xm.jy.job_51.result.Result;
 import com.xm.jy.job_51.vo.ProductCategoryVO;
-import com.xm.jy.model.ProductCategory;
-import com.xm.jy.service.ProductCategoryService;
+import com.xm.jy.job_cx.model.ProductCategory;
+import com.xm.jy.job_cx.service.ProductCategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
