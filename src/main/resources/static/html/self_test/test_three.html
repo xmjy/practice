@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件</title>
+    <script src="../../js/jquery.min.js"></script>
+</head>
+<style>
+    .xxx{
+
+    }
+</style>
+<body>
+<form>
+    <input type="file" accept="image/jpeg,image/png,image/jpg" multiple ><!--onchange="judgeFileSize()"-->
+</form>
+<table>
+    <tr>
+        <td class="xxx">
+            sdfsdfs
+        </td>
+    </tr>
+</table>
+<script>
+    /**
+     * 判断文件大小是否超过1M
+     */
+    function judgeFileSize() {
+        var  file = $("input[type='file']").get(0).files[0];
+        if (file.size > 1024 * 1024) {
+            $("input[type='file']").val("");
+            console.log("所选文件大于1M");
+        }
+    }
+
+    var arr = [1,2,3,4,5];
+    for (let v of arr){
+        console.log(v);
+    }
+
+    console.log("234234234%".charAt("234234234%".length-1))
+
+</script>
+</body>
+</html>

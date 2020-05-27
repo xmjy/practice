@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精通函数：闭包——使用闭包</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+
+
+<ul id="results"></ul>
+<div id="xxx" style="width: 100px;height: 100px;background: beige;position: absolute;left: 200px;top:200px">
+    I'm hero;
+</div>
+
+<div style="width: 100px;height: 100px;background: rgba(131,201,120,0.45);">
+    god lie
+</div>
+<!-- 用闭包模拟私有变量 -->
+<script>
+    function Ninja(){
+        var i = 0;
+        this.getI = function () {
+            return i;
+        };
+        this.addI = function () {
+            i++;
+        }
+    }
+
+    var ninja1 = new Ninja();
+    ninja1.addI();
+    assert(ninja1.i === undefined,"undefined");
+    assert(ninja1.getI() === 0,"ok");
+    assert(ninja1.getI() === 1,"ok");
+    var ninja2 = new Ninja();
+    ninja2.addI();
+    assert(ninja2.i === undefined,"undefined");
+    assert(ninja2.getI() === 0,"ok");
+    assert(ninja2.getI() === 1,"ok");
+</script>
+
+<!-- 在Interval的回调函数中使用闭包-->
+<script>
+    function setAnimate(elementId) {
+        var elem = document.getElementById(elementId);
+        var tick = 0;
+        var timer = setInterval(function () {
+            var left = elem.style.left.substring(0,elem.style.left.lastIndexOf("p"));
+            var top = elem.style.top.substring(0,elem.style.top.lastIndexOf("p"));
+            if (tick < 550){
+                elem.style.left = Number(left) + 1 + "px";
+                elem.style.top = Number(top) + 1 + "px";
+                tick ++;
+            }else {
+                clearInterval(timer);
+            }
+
+        },10);
+    }
+    setAnimate("xxx");
+
+    function replyAnimate(elementId) {
+        var elem = document.getElementById(elementId);
+        var tick = 550;
+        var timer = setInterval(function () {
+            var left = elem.style.left.substring(0,elem.style.left.lastIndexOf("p"));
+            var top = elem.style.top.substring(0,elem.style.top.lastIndexOf("p"));
+            if (tick > 0){
+                elem.style.left = Number(left) - 1 + "px";
+                elem.style.top = Number(top) - 1 + "px";
+                tick --;
+            }else {
+                clearInterval(timer);
+            }
+
+        },10);
+    }
+    function animate(i){
+        if (judgeNumber(i)) {
+            setTimeout('replyAnimate("xxx")',6000*i);
+        }else if (judgeNumber(i) === false) {
+            setTimeout('setAnimate("xxx")',6000*i);
+        }
+    }
+    function loop() {
+        for (var i=1;i<2000;i++){
+            animate(i);
+        }
+    }
+    loop();
+
+    /**
+     * 判断一个数是否是奇数,是奇数返回true,不是奇数返回false
+     * @param number
+     * @returns {boolean}
+     */
+    function judgeNumber(number) {
+        return number % 2 !== 0;
+    }
+</script>
+</body>
+</html>

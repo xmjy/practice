@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精通函数：闭包——理解闭包</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<script>
+    var outValue = "samurai";
+    var later;
+    function outerFunction() {
+        var innerValue = "ninja";
+        function innerFunction() {
+            assert(outValue === "samurai","外部变量");
+            assert(innerValue === "ninja","内部变量");
+        }
+        later =innerFunction;
+    }
+    outerFunction(); // 调用外部函数的缘由是为了给later这个全局变量赋值内部函数
+    later();
+
+    const a = 3; // const定义变量，需要初始化，后续不得进行更改
+
+    var inne;
+    function outer() {
+        function inn() {
+            console.log("外面函数没调，直接调用里面的函数无用")
+        }
+        inne = inn;
+    }
+    outer();
+    inne();
+</script>
+</body>
+</html>

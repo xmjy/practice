@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义与参数</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<script>
+    console.log("箭头函数是函数表达式的简化版");
+    var greet = name => "hello " + name;
+    console.log(greet("world"));
+    function greetWorld(name) {
+        return "hello "+name;
+    }
+    var greetWithNonePara = () => {
+        var hello = "hello";
+        return hello +" world";
+    }
+    assert(greet("world") === "hello world","箭头函数表示方式" );
+    assert(greetWorld("world") === "hello world","普通方法");
+    assert(greetWithNonePara() === "hello world","没有参数的箭头函数表示方式");
+</script>
+<script>
+    // 剩余参数，...含义是一个数组，将除第一个之外的参数都放在了这个数组里
+    function remainParameters(first,...remainParas) {
+        var sorted = remainParas.sort((a,b) => b-a);
+        return first * sorted[0];
+    }
+    assert(remainParameters(2,3,4,5,6,6,9) === 18,"最大的结果是多少呢？");
+
+    // ES6支持默认参数，直接在形参上赋值,如果调用该方法的地方有传值，那么以传进来的为准，否则直接用初始的赋值
+    function defaultParameter(first,second = "world"){
+        return first + " " + second;
+    }
+    console.log(defaultParameter("hello"));
+    console.log(defaultParameter("hello","林就远"));
+
+    // ES6 之前的默认参数写法
+    function defaultParaBeforeES6(first,second){
+        second = typeof second === "undefined" ? "world" : second;
+        return first + " " + second;
+    }
+    console.log(defaultParaBeforeES6("hello"));
+    console.log(defaultParaBeforeES6("hello","林就远"));
+
+    function test(a,b,...c){
+
+    };
+    // a=1,b=4,c=[3]
+    test(1,4,3);
+    // a=undefined,b=undefined,c=[]
+    test();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+    var inputNode = document.createElement('input');
+    inputNode.placeholder = "input some Text";
+    var buttonNode = document.createElement('button');
+    buttonNode.textContent = "click me";
+    buttonNode.addEventListener('click',function () {
+        let val = testReturn();
+        alert(val);
+    });
+    document.body.appendChild(inputNode);
+    document.body.appendChild(buttonNode);
+    function testReturn() {
+        return;
+    }
+</script>
+</body>
+</html>

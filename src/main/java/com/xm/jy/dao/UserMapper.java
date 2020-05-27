@@ -1,0 +1,19 @@
+package com.xm.jy.dao;
+
+import com.xm.jy.model.User;
+import org.apache.ibatis.annotations.Param;
+
+/**
+ * @author: albert.fang
+ * @date: 2020/4/24 16:17
+ * @description: User类dao层接口
+ */
+public interface UserMapper {
+
+    User getUserByNameAndPassword(@Param(value = "userName") String userName,
+                                  @Param(value = "password") String password);
+
+    void userRegister(User user);
+
+    User getUserByName(@Param(value = "userName") String userName);
+}
