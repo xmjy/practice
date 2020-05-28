@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @description: 从今天开始，有计划的学习，mark 2020/5/28 17:19
  */
 @Configuration
-public class GoodStudyConfig {
+public class GoodGoodStudyConfig {
 
     @Bean(name = "encourageSelf")
     public static String encourageSelf(){
