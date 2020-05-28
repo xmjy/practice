@@ -1,5 +1,8 @@
 package com.xm.jy.job_cx.controller;
 
+import com.xm.jy.test.ioc.config.DayDayUpConfig;
+import com.xm.jy.test.ioc.config.GoodGoodStudyConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class LitterHeart {
+
+    @Autowired
+    private GoodGoodStudyConfig goodGoodStudyConfig;
+
+    @Autowired
+    private DayDayUpConfig dayDayUpConfig;
+
+    @RequestMapping(value = "/getTextByIoc")
+    @ResponseBody
+    public String getTextByIoc(){
+        return goodGoodStudyConfig.encourageSelf() + dayDayUpConfig.believeMe();
+    }
 
     @RequestMapping(value = "/heart")
     public String getLitterHeart(){

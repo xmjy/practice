@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class GoodGoodStudyConfig {
 
     @Bean(name = "encourageSelf")
-    public static String encourageSelf(){
+    public String encourageSelf(){
         return "\033[31;0m"+"从今天开始，有计划的学习......";
     }
 

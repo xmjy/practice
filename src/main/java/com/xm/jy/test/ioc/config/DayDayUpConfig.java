@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class DayDayUpConfig {
 
     @Bean(name = "believeMe")
-    public static String believeMe(){
+    public String believeMe(){
         return "    相信我，这次绝非是口头说说而已,mark 2020/5/28 17:36......"+"\033[0m";
     }
 }
