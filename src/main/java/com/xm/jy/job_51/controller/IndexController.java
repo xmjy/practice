@@ -81,6 +81,4 @@ public class IndexController {
 
         ImageIO.write(image,"JPEG",response.getOutputStream());
     }
-
-
 }

@@ -29,7 +29,7 @@ public class LoginAspect {
     @Autowired
     private UserService userService;
 
-    @Pointcut("execution(public * com.cx.timer.job_51.controller.*.*(..) )"
+    @Pointcut("execution(public * com.xm.jy.job_51.controller.*.*(..) )"
                 + " && !execution(public * com.xm.jy.job_51.controller.LoginController.*(..))"
                 + " && !execution(public * com.xm.jy.job_51.controller.PageController.toLoginPage(..))"
                 + " && !execution(public * com.xm.jy.job_51.controller.PageController.toRegisterPage(..))"
