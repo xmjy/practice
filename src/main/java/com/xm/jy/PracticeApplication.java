@@ -28,6 +28,9 @@ public class PracticeApplication extends SpringBootServletInitializer {
         people.say();
         ComponentAndBean componentAndBean = ctx.getBean(ComponentAndBean.class);
         System.out.println(componentAndBean.toString());
+        String world = (String) ctx.getBean("encourageSelf");
+        String believe = (String) ctx.getBean("believeMe");
+        System.out.println(world+believe);
     }
 
     @Override
