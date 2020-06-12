@@ -37,7 +37,9 @@
     // 每个函数都有一个原型对象，该原型对象指向创建对象的函数；可以通过方法名.prototype来查看函数的原型对象
     Ninja.prototype.swingSword = function () {
         return true;
-    }
+    };
+
+    getWord.prototype = new Ninja();
 </script>
 </body>
 </html>
