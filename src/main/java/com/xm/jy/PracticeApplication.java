@@ -1,5 +1,6 @@
 package com.xm.jy;
 
+import com.xm.jy.job_cx.aspect.AllActionAspect;
 import com.xm.jy.test.ioc.entity.ComponentAndBean;
 import com.xm.jy.test.ioc.entity.People;
 import com.xm.jy.test.ioc.entity.Person;

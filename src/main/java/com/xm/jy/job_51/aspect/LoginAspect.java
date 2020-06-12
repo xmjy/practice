@@ -7,11 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
@@ -26,7 +27,7 @@ import java.io.UnsupportedEncodingException;
 @Slf4j
 public class LoginAspect {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @Pointcut("execution(public * com.xm.jy.job_51.controller.*.*(..) )"
