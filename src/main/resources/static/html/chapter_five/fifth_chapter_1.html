@@ -12,10 +12,10 @@
     var outValue = "samurai";
     var later;
     function outerFunction() {
-        var innerValue = "ninja";
+        var innerValue = "ninja1";
         function innerFunction() {
             assert(outValue === "samurai","外部变量");
-            assert(innerValue === "ninja","内部变量");
+            assert(innerValue === "ninja1","内部变量");
         }
         later =innerFunction;
     }
