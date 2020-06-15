@@ -10,13 +10,14 @@
 <ul id="results"></ul>
 <!--
     处理集合：
-        1、数组
+        1、数组：连续的一块内存块
         // ES6 引入的两个新集合
-        2、map
-        3、set
+        2、map：键值对
+        3、set：集合中的元素不能重复
 -->
 <script>
     /* 数组部分 */
+    assert(false,"***********************结合——数组************************");
     var testArray = [1,2,3,4];
     testArray.push("从数组末尾添加元素");
     testArray.unshift("从数组头部添加元素");
@@ -45,6 +46,7 @@
     });
 
     /* map部分 */
+    assert(false,"***********************结合——Map************************");
     var map = new Map();
     var swing1 = {};
     var swing2 = {};
@@ -69,6 +71,38 @@
     map.clear();
     assert(map.size === 0,"map里的键值对全被清空，size大小自然是0");
 
+    /* set部分 */
+    assert(false,"***********************结合——Set************************");
+    var set = new Set();
+    assert(set.size === 0,"新建了一个set集合，长度为0");
+    // 往新建的set集合添加元素
+    set.add("林就远，大帅比");
+    assert(set.size === 1,"往set集合添加了一个元素，长度为1");
+    // 判断set集合里是否有该元素
+    assert(set.has("林就远，大帅比"),"已经存在该元素");
+    // 往set集合多加几个元素
+    set.add("于欣欣，大美女");
+    set.add("郭哥，大帅比");
+    set.add("我，也是大帅比");
+    // 遍历set集合
+    set.forEach( v => {
+        assert(true,v);
+    });
+    // set集合的并集、交集、差集
+    // 1、创建2个set集合
+    var set1 = new Set([1,2,3]);
+    var set2 = new Set([3,4,5,6]);
+    // 2、将两个set集合合并
+    var combinationSet = new Set([...set1,...set2]);
+    // 遍历输出并集结果
+    combinationSet.forEach( v => assert(false,v));
+    // 3、将两个set集合相交
+    var intersectSet = new Set([...set1].filter(v => set2.has(v)));
+    intersectSet.forEach( v => assert(true,v));
+    // 4、取两个set集合的差集，取set1中不在set2里出现的元素
+    var differenceSet = new Set([...set1].filter(v => !set2.has(v)));
+    // var differenceSet = new Set([...set1].filter(v => !set2.has(v)) && [...set2].filter(v => !set1.has(v)));
+    differenceSet.forEach(v => assert(false,v));
 </script>
 </body>
 </html>
