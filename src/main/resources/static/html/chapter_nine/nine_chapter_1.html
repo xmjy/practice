@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+
+<!--
+    处理集合：
+        1、数组
+        2、map
+        3、set
+-->
+<script>
+    /* 数组部分 */
+    var testArray = [1,2,3,4];
+    testArray.push("从数组末尾添加元素");
+    testArray.unshift("从数组头部添加元素");
+    testArray.shift("从数组头部删除元素");
+    testArray.pop("从数组末尾删除元素");
+    // 删除数组任意指定位置元素，这种删除只是清空了数组下标里的值，替换成了undefined
+    delete testArray[1];
+    // 在数组第0个位置开始，删除一个元素，这个删除是将元素的位置和值都给除去了
+    // removeItems是删除掉的子数组
+    var removeItems = testArray.splice(0,1);
+
+    // 在数组第0个位置开始，删除0个元素，并加入"添加1","添加2"
+    testArray.splice(0,0,"添加1","添加2");
+    // 在数组第3个位置开始，加入“哈哈哈”
+    testArray.splice(3,0,"哈哈哈");
+    // 排序，先数字（从小到大）、字符串、最后undefined
+    testArray.sort();
+    // ES6 语法遍历集合
+    for(let value of testArray){
+        console.log(value);
+    }
+
+    // 使用forEach遍历集合
+    // testArray.forEach(item => {
+    //     assert( item != null,item);
+    // })
+
+    /* map部分 */
+
+</script>
+</body>
+</html>
