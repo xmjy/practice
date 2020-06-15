@@ -9,11 +9,26 @@
 <body>
 <ul id="results"></ul>
 <!--
-    ES6关键语法：class关键字,里面有constructor构造方法，只能有一个；
+    ES6关键语法：
+        1、class关键字,里面有constructor构造方法，只能有一个；
+        2、可以使用extends关键字实现类之间的继承关系
+        3、子类必须通过super()显示调用父类的构造函数
+        4、子类对象可以调用父类的非静态方法
 -->
 <script>
-    class Ninja{
+    // 基类
+    class Person{
+        constructor(){
+            console.log("ES6 语法中，子类必须通过super()显示调用父类的构造函数")
+        }
+
+        dance(ninja1){
+            assert(true,ninja1.name + "在跳舞");
+        }
+    }
+    class Ninja extends Person{
         constructor(name,level){
+            super();
             this.name = name;
             this.level = level;
         }
@@ -32,6 +47,8 @@
     assert(ninja1.name === "林就远","class关键字");
     assert(ninja1.swingSword(),"可以调用Ninja类里的方法");
     console.log(Ninja.compare(ninja1,ninja2))
+    ninja2.dance(ninja1);
+    ninja2.dance(ninja2);
 </script>
 </body>
 </html>
