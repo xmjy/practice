@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../../css/common.css">
 </head>
 <body>
-
+<ul id="results"></ul>
 <!--
     处理集合：
         1、数组
+        // ES6 引入的两个新集合
         2、map
         3、set
 -->
@@ -34,16 +35,39 @@
     // 排序，先数字（从小到大）、字符串、最后undefined
     testArray.sort();
     // ES6 语法遍历集合
-    for(let value of testArray){
-        console.log(value);
-    }
+    // for(let value of testArray){
+    //     console.log(value);
+    // }
 
     // 使用forEach遍历集合
-    // testArray.forEach(item => {
-    //     assert( item != null,item);
-    // })
+    testArray.forEach(item => {
+        assert( item != null,item);
+    });
 
     /* map部分 */
+    var map = new Map();
+    var swing1 = {};
+    var swing2 = {};
+    var swing3 = {};
+    map.set(swing1,{"name":"我是swing1"});
+    map.set(swing2,{"name":"我是swing2"});
+    // 遍历map
+    map.forEach(v => {
+        assert(v.name,v.name);
+    });
+    // 判断map里有没有key为mapName的值，map.has(mapName)
+    assert(map.has(swing1),map.get(swing1).name);
+    assert(map.has(swing2),map.get(swing2).name);
+    assert(map.size === 2,"对的，现在的map里的键值对长度是2");
+    assert(map.has(swing3),"不存在");
+    // 删除指定key的值
+    map.delete(swing1);
+    // 删除了之后，再做判断
+    assert(map.has(swing1),"key是swing1的已经被删除了");
+    assert(map.size === 1,"对的，现在的map里的键值对长度是1");
+    // 清楚map里的键值对
+    map.clear();
+    assert(map.size === 0,"map里的键值对全被清空，size大小自然是0");
 
 </script>
 </body>
