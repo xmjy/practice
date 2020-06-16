@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+<ul id="results"></ul>
+<!--
+    正则表达式：
+        1、[a-m]匹配字符集
+-->
+<script>
+    // 通过字面量创建正则表达式
+    var regExp1 = /t{2}est/;
+    // 通过创建正则表达式的实例
+    var regExp2 = new RegExp("t{2}est");
+    assert(regExp1.test("sfdsdfstttttttttttttttttttttttttttttttttttttttttest"),"正则表达式");
+    assert(regExp1.toString() === regExp2.toString(),"两种正则表达式是相同的");
+    assert(true,"sfdsdfest".match(regExp1))
+
+</script>
+</body>
+</html>
