@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 
 public class TestPanel {
     public static void main(String[] args) {
-        Frame frame = new Frame();
+        Frame frame = new Frame("往frame框架添加panel");
         Panel panel = new Panel();
 
         //设置布局(布局：Layout)
@@ -16,7 +16,9 @@ public class TestPanel {
 
         frame.setBackground(new Color(85,150,68));
 
-        panel.setBounds(50,50,400,400);
+//        panel.setBounds(50,50,400,400);
+        panel.setLocation(50,50);
+        panel.setSize(400,400);
         panel.setBackground(new Color(105,39,0));
 		
         // panel内嵌在frame里面
