@@ -1,4 +1,4 @@
-package com.xm.jy.job_51.awt;
+package com.xm.jy.job_51.awt.panel;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

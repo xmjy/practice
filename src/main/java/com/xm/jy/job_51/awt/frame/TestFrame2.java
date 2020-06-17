@@ -1,4 +1,4 @@
-package com.xm.jy.job_51.awt;
+package com.xm.jy.job_51.awt.frame;
 
 import java.awt.*;
 
