@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 /**
- * 使用了Swing工具
+ *  使用了Swing工具
  */
 public class SnakeGame extends KeyAdapter implements Runnable {   
     private boolean start=false;
