@@ -7,11 +7,7 @@ package com.xm.jy.job_51.mianTest;
  */
 public class Test_51 {
     public static void main(String[] args) {
-        StringBuilder testStr = new StringBuilder();
-        for (int i = 0; i < 151; i++) {
-            testStr.append("s");
-        }
-        System.out.println(testStr);
-        System.out.println("sssssssssssssssssssssssssssssssssssssssssssssssssss".length());
+        String str = "sdfgjkl;";
+        System.out.println(str.contains("sdf"));
     }
 }
