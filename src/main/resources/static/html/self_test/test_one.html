@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" http-equiv="refresh" content="5;URL=test_two.html">
     <title>Title</title>
     <script src="../../js/jquery.min.js"></script>
 </head>
@@ -32,23 +32,24 @@
     }
 </style>
 <body>
-<div id="allThing">
-    <button onclick="showLayerDiv()">everything on this div</button>
-    <div id="floatingLayer">
-        <span id="closeLayer" onclick="closeLayerDiv()">x</span>
-        hello,motto;
+    <h1>这是第一个页面</h1>
+    <div id="allThing">
+        <button onclick="showLayerDiv()">everything on this div</button>
+        <div id="floatingLayer">
+            <span id="closeLayer" onclick="closeLayerDiv()">x</span>
+            hello,motto;
+        </div>
     </div>
-</div>
-<input  name="0513" type="checkbox">
-<button onclick="operateCheckbox()">操作文本框</button>
-<label>
-    <input onclick="check(this)" value="23">
-</label>
-<br>
-<input type="checkbox" name = 'checkClickTest' value="0">你是帅逼
-<input type="checkbox" name = 'checkClickTest' value="1">你才是帅逼
-<input type="checkbox" name = 'checkClickTest' value="2">不，我才是帅逼
-<input type="checkbox" name = 'checkClickTest' value="3">好吧，大家都是帅逼
+    <input  name="0513" type="checkbox">
+    <button onclick="operateCheckbox()">操作文本框</button>
+    <label>
+        <input onclick="check(this)" value="23">
+    </label>
+    <br>
+    <input type="checkbox" name = 'checkClickTest' value="0">你是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="1">你才是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="2">不，我才是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="3">好吧，大家都是帅逼
 <script>
     var array = [];
     function showLayerDiv() {
