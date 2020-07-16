@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dragDiv {
+            width: 600px;
+            height: 200px;
+            border: solid 1px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .targetArea {
+            /*background-color: purple;*/
+        }
+        #targetDiv {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: solid 1px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 要让该元素支持拖放事件，给该元素添加一个draggable属性，并设置为true -->
+    <div id="targetDiv" draggable="true">
+        目标区
+    </div>
+    <div style="height: 100px;"></div>
+    <div draggable="true" id="dragDiv"> 拖放事件 </div>
+    <div style="height: 100px;"></div>
+    <label>
+        <input value="文字可拖动">
+    </label>
+    <script>
+        // 拖动的是虚影
+        document.querySelector('#dragDiv').addEventListener('drag',function (event) {
+            this.innerText = "元素一直被拖动";
+        });
+        // 开始拖动目标元素
+        document.querySelector('#dragDiv').addEventListener('dragstart',function (event) {
+            this.innerText = "元素开始被拖动";
+            console.log("元素开始被拖动");
+        });
+        // 拖动的时候松开鼠标按键或者按esc按键触发执行
+        document.querySelector('#dragDiv').addEventListener('dragend',function (event) {
+            this.innerText = "元素拖动结束";
+        });
+
+        // 针对目标元素的dragenter、dragleave、dragover、drop事件
+        document.querySelector('#targetDiv').addEventListener('dragenter',function (event) {
+            this.innerText = "有元素进来啦";
+            console.log("有元素拖动到目标元素区内");
+        });
+
+        // 被拖动的文本，在目标元素区内一直拖动
+        document.querySelector('#targetDiv').addEventListener('dragover',function (event) {
+            // dragover事件有一个浏览器的默认行为：使drop事件失效
+            // 通过阻止默认行为，让drop事件生效
+            event.preventDefault();
+            this.innerText = "被拖动的文本，在目标元素区内一直拖动";
+        });
+
+        // 被拖动的文本离开了目标元素区
+        document.querySelector('#targetDiv').addEventListener('dragleave',function (event) {
+            this.innerText = "被拖动的文本离开了目标元素区";
+        });
+
+        // 被拖动的文本在目标元素区内被释放（以鼠标的光标来判断是否在目标元素区内）
+        document.querySelector('#targetDiv').addEventListener('drop',function (event) {
+            this.innerText = "被拖动的已落在在目标元素区内";
+            this.style.backgroundColor = "gray";
+        });
+    </script>
+</body>
+</html>
