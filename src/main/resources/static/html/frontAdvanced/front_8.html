@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #targetDiv {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: solid 1px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../images/a4b9621331eb06e5af6324f0818e922.png">
+    <div id="targetDiv"> 目标区 </div>
+    <script>
+        document.querySelector('img').addEventListener('dragstart',function (event) {
+            event.dataTransfer.setData("image",this.getAttribute('src'))
+        });
+        document.querySelector('#targetDiv').addEventListener('dragover',function (event) {
+            event.preventDefault();
+        });
+        document.querySelector('#targetDiv').addEventListener('drop',function (event) {
+            var img = document.createElement('img');
+            img.src = event.dataTransfer.getData('image');
+            this.appendChild(img);
+        });
+    </script>
+</body>
+</html>
