@@ -1,4 +1,4 @@
-package com.xm.jy.leetcode;
+package com.xm.jy.leetcode.not_finfihed;
 
 import java.util.HashMap;
 import java.util.LinkedList;
