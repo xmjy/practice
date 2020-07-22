@@ -1,4 +1,4 @@
-package com.xm.jy.leetcode;
+package com.xm.jy.leetcode.data_structure;
 
 /**
  * definition singly-linked

@@ -1,6 +1,6 @@
 package com.xm.jy.leetcode.finished;
 
-import com.xm.jy.leetcode.ListNode;
+import com.xm.jy.leetcode.data_structure.ListNode;
 
 /**
  * @author: albert.fang

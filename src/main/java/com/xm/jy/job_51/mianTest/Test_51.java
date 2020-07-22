@@ -1,5 +1,7 @@
 package com.xm.jy.job_51.mianTest;
 
+import java.util.ArrayList;
+
 /**
  * @author: albert.fang
  * @date: 2020/4/23 14:51
@@ -7,7 +9,18 @@ package com.xm.jy.job_51.mianTest;
  */
 public class Test_51 {
     public static void main(String[] args) {
-        String str = "sdfgjkl;";
-        System.out.println(str.contains("sdf"));
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(2);
+        arrayList.add(2);
+        arrayList.add(2);
+        System.out.println(arrayList.size());
+        for (int i = arrayList.size() - 1; i >= 0 ; i--) {
+            if (arrayList.get(i) == 2){
+                arrayList.remove(i);
+            }
+        }
+        System.out.println(arrayList.size());
     }
 }
