@@ -1,4 +1,4 @@
-package com.xm.jy.test.column_course.java_sourcecode_analyze_34;
+package com.xm.jy.column_course.java_sourcecode_analyze_34;
 
 import java.util.HashMap;
 

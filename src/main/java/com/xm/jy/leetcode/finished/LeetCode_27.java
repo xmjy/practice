@@ -8,6 +8,8 @@ import com.xm.jy.leetcode.util.ListNodeUtil;
  * @date: 2020/7/22 16:44
  * @description: 面试题 02.06. 回文链表
  * @description: 编写一个函数，检查输入的链表是否是回文的。eg：1->2->2->1
+ *
+ * @description: 234. 回文链表 12321   123321
  */
 public class LeetCode_27 {
     private static boolean isPalindrome(ListNode head) {
@@ -35,7 +37,7 @@ public class LeetCode_27 {
             pre = cur;
             cur = next;
         }
-        // 用反转后的下半部分链表和之前未反转的链表进行逐个比较值，比较middle位
+        // 用反转后的下半部分链表和之前未反转的链表进行逐个比较值，比较前middle位
         for (int j = 1; j <= middle; j++) {
             if (head.val != pre.val){
                 return false;

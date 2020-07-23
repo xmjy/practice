@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class Test_51 {
     public static void main(String[] args) {
+        String a = "sdfsdf";
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(1);
         arrayList.add(2);

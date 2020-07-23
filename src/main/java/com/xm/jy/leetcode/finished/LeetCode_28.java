@@ -39,6 +39,30 @@ public class LeetCode_28 {
         return listNode;
     }
 
+    private static ListNode removeElements2(ListNode head, int val){
+        if (head == null){
+            return null;
+        }
+        ListNode dummy = new ListNode(val + 1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode cur = dummy;
+        cur = cur.next;
+        while (cur != null){
+            // 如果当前节点的值等于val值的，那么改变前面一个指针的next指向，并且让cur指针到下一个节点上
+            if (cur.val == val){
+                pre.next = cur.next;
+                cur = cur.next;
+            }
+            // 如果不相等，那么同时移动两个指针
+            else {
+                pre = pre.next;
+                cur = cur.next;
+            }
+        }
+        return dummy.next;
+    }
+
     public static void main(String[] args) {
         Integer[] ants = {1,1};
         removeElements(ListNodeUtil.generateListNode(ants),1);
