@@ -1,4 +1,4 @@
-package com.xm.jy.leetcode.doing;
+package com.xm.jy.leetcode.finished;
 
 /**
  * @author: albert.fang
