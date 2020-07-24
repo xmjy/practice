@@ -1,6 +1,7 @@
 package com.xm.jy.job_51.mianTest;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author: albert.fang
@@ -9,19 +10,13 @@ import java.util.ArrayList;
  */
 public class Test_51 {
     public static void main(String[] args) {
-        String a = "sdfsdf";
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(1);
-        arrayList.add(2);
-        arrayList.add(2);
-        arrayList.add(2);
-        arrayList.add(2);
-        System.out.println(arrayList.size());
-        for (int i = arrayList.size() - 1; i >= 0 ; i--) {
-            if (arrayList.get(i) == 2){
-                arrayList.remove(i);
-            }
-        }
-        System.out.println(arrayList.size());
+        LinkedList<Integer> integers = new LinkedList<>();
+        integers.add(23);
+        integers.add(23);
+        integers.add(23);
+        integers.add(23);
+        integers.add(23);
+        integers.addFirst(24);
+        System.out.println();
     }
 }
