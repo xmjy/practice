@@ -12,21 +12,7 @@ import java.util.LinkedList;
  */
 public class Test_51 {
     public static void main(String[] args) {
-        ArrayList<Integer> arrayList = new ArrayList<Integer>(){
-            {
-                add(23);
-                add(24);
-                add(26);
-                add(25);
-            }
-        };
-        ArrayList<Integer> arrayList1 = new ArrayList<Integer>(){
-            {
-                add(23);
-                add(24);
-            }
-        };
-        arrayList.sort(Integer::compareTo);
-        arrayList1.set(1,45);
+        int a = -5 >> 2 ;
+        System.out.println(a);
     }
 }
