@@ -35,7 +35,7 @@
         <button type="submit" onclick="encodePassword()">登录</button>
     </form>
     <img id="testGraphics" onclick="getVerifyCode()"/>
-    <a href="/51/page/toRegisterPage">去登录页面</a>
+    <a href="/51/page/toRegisterPage">去注册页面</a>
     <script>
         $(function () {
             getCode();
@@ -60,11 +60,11 @@
          * 将验证码写到login.html页面的id = verifyimg 的地方
          */
         function getCode() {
-            document.getElementById("verifyimg").src = timestamp("http://localhost:8054/verifyCode/verifyCodeBySelf");
+            document.getElementById("verifyimg").src = timestamp("http://localhost:8088/verifyCode/verifyCodeBySelf");
         }
 
         function getVerifyCode() {
-            document.getElementById("testGraphics").src = timestamp("http://localhost:8054/testGraphics?imageType=1");
+            document.getElementById("testGraphics").src = timestamp("http://localhost:8088/testGraphics?imageType=1");
         }
         //为url添加时间戳
         function timestamp(url) {

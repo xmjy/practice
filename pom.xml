@@ -11,8 +11,8 @@
     <groupId>com.cx</groupId>
     <artifactId>practice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>timer</name>
+    <packaging>jar</packaging>
+    <name>practice</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -110,13 +110,13 @@
                 </exclusion>
             </exclusions>
         </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
             <!--打包的时候可以不用包进去，别的设施会提供。事实上该依赖理论上可以参与编译，测试，运行等周期。
                 相当于compile，但是打包阶段做了exclude操作-->
-            <scope>provided</scope>
-        </dependency>
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <!--排除内置的tomcat容器结束-->
 
         <!-- 引入json处理jar包，fastjson是比较常用的-->
@@ -155,7 +155,7 @@
 
     <build>
         <!-- 应与application.properties(或application.yml)中context-path保持一致 -->
-        <finalName>timer</finalName>
+        <finalName>practice</finalName>
         <plugins>
             <!-- 可以将项目打成jar包-->
             <plugin>

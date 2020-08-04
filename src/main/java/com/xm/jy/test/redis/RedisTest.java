@@ -12,7 +12,7 @@ import java.util.Random;
 public class RedisTest {
     public static void main(String[] args) {
         Jedis jedis = RedisConnectPool.getConnection();
-        System.out.println(jedis.ttl("key1"));
+        jedis.flushAll();
         jedis.close();
     }
 
