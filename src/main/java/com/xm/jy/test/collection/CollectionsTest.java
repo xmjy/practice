@@ -54,7 +54,7 @@ public class CollectionsTest {
         colleges.forEach(v -> {
             System.out.println(v.toString());
         });
-
+        System.out.println("git测试");
     }
     // 将List中相同学院名称的到馆次数合并
     public static List<College> mergeSameCollegeName(List<College> collegeList){
