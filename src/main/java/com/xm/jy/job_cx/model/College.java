@@ -49,10 +49,12 @@ public class College implements Comparable<College>{
 
     @Override
     public int compareTo(College o) {
+        // 返回负数表示this对象排在 o 前面
         if(this.getCountNum()>o.getCountNum())
         {
             return -1;
         }
+        // 返回正数表示this对象排在 o 后面
         else if(this.getCountNum()<o.getCountNum())
         {
             return 1;
