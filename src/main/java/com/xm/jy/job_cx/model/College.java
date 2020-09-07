@@ -17,6 +17,20 @@ public class College implements Comparable<College>{
      */
     private Integer countNum;
 
+    /**
+     * 学院等级
+     * @return
+     */
+    private Integer level;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
     public String getCollegeName() {
         return collegeName;
     }
@@ -47,5 +61,14 @@ public class College implements Comparable<College>{
         {
             return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "College{" +
+                "collegeName='" + collegeName + '\'' +
+                ", countNum=" + countNum +
+                ", level=" + level +
+                '}';
     }
 }
