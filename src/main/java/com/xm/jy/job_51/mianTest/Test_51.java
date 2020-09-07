@@ -1,9 +1,7 @@
 package com.xm.jy.job_51.mianTest;
 
-import com.xm.jy.test.api.A;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author: albert.fang
@@ -12,7 +10,11 @@ import java.util.LinkedList;
  */
 public class Test_51 {
     public static void main(String[] args) {
-        int a = -5 >> 2 ;
-        System.out.println(a);
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(1,2);
+        if (map.containsKey(1)){
+            map.put(1,map.get(1) + 1);
+        }
+        System.out.println(map.get(1));
     }
 }
