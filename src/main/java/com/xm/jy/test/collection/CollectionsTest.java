@@ -71,9 +71,7 @@ public class CollectionsTest {
             }
         });
         List<College> result = new ArrayList<>();
-        map.forEach( (k,v) -> {
-            result.add(v);
-        });
+        map.forEach( (k,v) -> result.add(v));
         Collections.sort(result);
         return result;
     }
