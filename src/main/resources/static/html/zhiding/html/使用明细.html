@@ -1,0 +1,286 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="/zhiding/images/favicon.ico" />
+  <title>智鼎在线测评，您的人才评估助手。</title>
+  <link rel="stylesheet" href="http://hr.zhiding.com.cn/zhiding/css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hr.zhiding.com.cn/zhiding/css/base.css?v=28527">
+  <link rel="stylesheet" href="http://hr.zhiding.com.cn/zhiding/css/style.css?v=28527">
+  <link rel="stylesheet" href="../css/use.css">
+  <script src="http://hr.zhiding.com.cn/zhiding/js/jquery-1.8.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://hr.zhiding.com.cn/zhiding/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/datas.js" type="text/javascript" charset="utf-8"></script>
+  <!--后台下载按钮 -->
+  <style>
+    img.ht {
+      height: 20px;
+      width: 20px;
+      margin: -1px;
+      padding-right: -1px;
+      top: 1px;
+      position: relative;
+    }
+
+    .showSystemMessage {
+      text-align: left;
+    }
+
+    .task_msg {
+      text-align: center;
+    }
+
+    .msg {
+      text-align: center;
+    }
+
+    a.task_center {
+      color: #436EEE;
+    }
+
+    a.user_center {
+      color: #436EEE;
+    }
+  </style>
+</head>
+<div class="head-top-wrap">
+  <div class="wrap">
+    <h1 id="logo" class="logo">
+      <a href="/zhiding/login_toindexUI" target="_self" class="hide-text" id="51OrZd" style="width:119px; background:url('http://hr.zhiding.com.cn/zhiding/images/51logo.png') no-repeat;background-size:  auto 100%;">
+      </a>
+    </h1>
+    <div class="vis-info" id="showInfo">
+      <a class="call" id="welcomes">您好<span style="font-weight:bold;margin-left: 8px;">ye</span></a>
+      <p class="call" style="font-size: 16px;line-height: 15px;">1.1</p>
+    </div>
+    <a class="link" href="javascript:void(0)" id="enterlogo" title="智鼎在线"><img src="http://hr.zhiding.com.cn/zhiding/images/link.jpg" alt=""></a>
+  </div>
+</div>
+<!-- Top End -->
+<!-- Head Start -->
+<div class="head">
+  <div class="wrap">
+    <ul class="nav">
+      <li class="first evaluation"><a href="javascript:void(0)" onclick="toNewHr(1)" data-intro='<div><B>评测中心</B></div>
+           <div style="font-size: 12px;">评测中心显示您购买的产品，您可以查看相关产品的 产品简介 并安排测评</div>
+           <div style="font-size: 12px;"><input type="checkbox" id="check-intro" class = "check-intro">   不再提示</input></div>' data-disable-interaction="false"><i class="icon"></i>评测中心</a></li>
+      <li class="manage"><a href="javascript:void(0)" onclick="toNewHr(2)" data-intro='<div><B>人才中心</B></div>
+           <div style="font-size: 12px;">人才中心显示您企业下所有人员的信息，您可以在此处查看作答状态以及下载相关人员报告</div>
+           <div style="font-size: 12px;"><input type="checkbox" id="check-intro" class = "check-intro">   不再提示</input></div>' data-disable-interaction="false"><i class="icon"></i>人才中心</a></li>
+      <li class="professional" style="display: none"><a href="javascript:void(0)" onclick="toExamPaperManager()"><i class="icon"></i>试卷管理</a></li>
+      <li class="user"><a href="javascript:void(0)" onclick="toNewHr(3)" data-intro='<div><B>用户中心</B></div>
+           <div style="font-size: 12px;">可在用户中心修改您的个人资料、查看账号使用情况以及实现页面个性化定制</div>
+           <div style="font-size: 12px;"><input type="checkbox" id="check-intro" class = "check-intro">   不再提示</input></div>' data-disable-interaction="false"><i class="icon"></i>用户中心</a></li>
+      <li class="isGroup" style="display: none"><a href="javascript:void(0)" onclick="toNewHr(4)"><i class="icon"></i>分权设置</a></li>
+      <li class="data"><a href="javascript:void(0)" onclick="toNewHr(5)"><i class="icon"></i>数据中心</a></li>
+      <!--   <a href="/zhiding/fq/goenterprise_settingUI" id="fqgnsz">分权功能设置</a> -->
+    </ul>
+    <div class="login-area" data-intro='<div><B>下载中心</B></div>
+       <div style="font-size: 12px;">可在此处查看您创建的后台任务</div>
+       <div><B>消息提醒</B></div>
+       <div style="font-size: 12px;">可在此处查看您的系统消息</div>
+       <div><B>设置</B></div>
+       <div style="font-size: 12px;">在此处设置您的考试登录方式，若购买分权服务可在此进行分权管理  </div>
+       <div><B>帮助</B></div>
+       <div style="font-size: 12px;">点击此处全面了解系统操作</div>
+       <div><B>退出</B></div>
+       <div style="font-size: 12px;">点击此处安全退出系统</div>
+       <div style="font-size: 12px;"><input type="checkbox" id="check-intro" class = "check-intro">   不再提示</input></div> ' data-disable-interaction="false">
+      <ul>
+        <!--后台任务下载按钮  -->
+        <li class="todownload" id="todownload">
+          <a href="javascript:void(0)" onclick="toNewHr(6)" title='任务中心'><img class="ht" src="http://hr.zhiding.com.cn/zhiding/images/background.png"></a>
+        <li class="notice" id="notice">
+          <a href="#" title='消息'><i class="icon i-1"></i></a>
+        </li>
+        <li class="site"><a href="javascript:void(0)" onclick="toNewHr(8)" title="设置"><i class="icon"></i></a></li>
+        <li class="help"><a href="javascript:void(0)" onclick="toNewHr(9)" title="帮助"><i class="icon"></i></a></li>
+        <li class="exit"><a href="/zhiding/gologin.action" title="退出"><i class="icon"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<body>
+  <div class="wrap-content userCenter">
+    <div class="wrap">
+      <div class="zdrc-title userCenter-title">
+        <a href="/zhiding/user/userCenter.action">用户中心</a>
+      </div>
+
+      <div class="white-wrap">
+        <div class="zdrc-tag">
+          <div class="tag-nav">
+            <a href="/zhiding/user/userCenter.action">修改资料</a>
+            <a href="/zhiding/user/madePage.action">个性化设置</a>
+            <a href="/zhiding/toProductUse" id="cpsyqk" class="active">产品使用情况</a>
+            <div class="border"></div>
+          </div>
+          <div class="second-nav">
+            <a href="#">使用统计</a>
+            <a href="#">订单情况</a>
+            <a href="#" class="active">使用明细</a>
+          </div>
+          <div class="manage-list use-list">
+            <div class="section-param">
+              <div class="input-text">
+                <label>订单编号：</label>
+                <div class="inner">
+                  <input type="text" placeholder="请输入订单编号">
+                </div>
+              </div>
+              <div class="input-text">
+                <label>活动名称：</label>
+                <div class="inner">
+                  <input type="text" placeholder="请输入活动名称">
+                </div>
+              </div>
+              <div class="input-text">
+                <label>时间：</label>
+                <div class="inner">
+                  <input type="text" placeholder="请选择日期" autocomplete="off" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="begin">
+                  <label style="padding:2px;"> 一 </label>
+                  <input type="text" placeholder="请选择日期" autocomplete="off" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="end">
+                </div>
+              </div>
+              <div class="input-text status">
+                <label>状态：</label>
+                <div class="inner">
+                  <div class="zdrc-select">
+                    <div class="text">请选择</div>
+                    <i class="icon"></i>
+                    <select id="status">
+                      <option value="4" selected="">请选择</option>
+                      <option value="2">已完成</option>
+                      <option value="1">作答中 </option>
+                      <option value="0">未作答</option>
+                      <option value="3">账号未分配</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="full-search">
+              <div class="search-wrap">
+                <div class="label">机构名称</div>
+                <div class="search-box" onclick="selectOpen(this)">
+                  <input type="text" name="" class="search-input" disabled placeholder="搜索关键词/选择机构名称" oninput="searchItems(this)">
+                </div>
+                <div class="down" onclick="autoSelect(this)"></div>
+                <div id="enterpriseName" class="select-box" style="display: none;">
+                </div>
+              </div>
+              <script>
+                var resultHtml = '';
+               function loopData(d) {
+                  if(Array.isArray(d) && d.length > 0){
+                    d.forEach(function(v,i){
+                      resultHtml += '<div class="t-container">';
+                      resultHtml += '  <p data-id="'+ v.id +'"><i class="t-check"></i>'+ v.title +'</p>';
+                      loopData(v.subs)
+                      resultHtml += '</div>';
+            　　　　  });
+                  }
+                }
+                
+                loopData(getEnterpriseNameJson);
+                $('#enterpriseName').html(resultHtml)
+              </script>
+              <div class="has-choose" style="display: none;">
+              <div class="label">已选：</div>
+              <div class="choose-box">
+                <em class="open-btn open" onclick="autoClick(this)" style="display: none;">点击收起 ↑</em>
+              </div>
+            </div>
+            </div>
+            <div class="full-search">
+              <div class="search-wrap">
+                <div class="label">产品名称</div>
+                <div class="search-box" onclick="selectOpen(this)">
+                  <input type="text" name="" class="search-input" disabled placeholder="搜索关键词/选择产品名称">
+                </div>
+                <div class="down" onclick="autoSelect(this)"></div>
+                <div id="productName" class="select-box" style="display: none;"></div>
+                <script>
+                  var phtml = '';
+                  for (var i = 0; i < getProductNameJson.length; i++) {
+                    phtml += '<p data-id="'+ getProductNameJson[i].id +'"><i class="t-check"></i>'+ getProductNameJson[i].title +'</p>';
+                    
+                  }
+                  $('#productName').html(phtml)
+                </script>
+              </div>
+              <a style='margin-left:50px;' href="javascript:chaxun(1,20);" class="btn btn-query">查询</a>
+              <div class="has-choose" style="display: none;">
+              <div class="label">已选：</div>
+              <div class="choose-box">
+                <em class="open-btn open" onclick="autoClick(this)" style="display: none;">点击收起 ↑</em>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <ul class="tag-main">
+            <li class="usage" style="display: block">
+              <table class="zdrc-table">
+                <thead id="infoHead">
+                  <tr>
+                    <th>序号</th>
+                    <th>时间</th>
+                    <th>机构名称</th>
+                    <th>产品名称</th>
+                    <th>活动名称</th>
+                    <th>订单类型</th>
+                    <th>订单编号</th>
+                    <th>状态</th>
+                    <th>数量/金额</th>
+                  </tr>
+                </thead>
+                <tbody id="info">
+                  <tr>
+                    <td>1</td>
+                    <td>2020-09-09 10:00:00</td>
+                    <td>A</td>
+                    <td>MAP</td>
+                    <td>112</td>
+                    <td>充值</td>
+                    <td>ds-dd--d</td>
+                    <td>系统返还</td>
+                    <td>-10个</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="zdrc-page">
+                <input type="hidden" name="everyPageNumbers" id="everyPageNumbers">
+                每页显示 <input type="text" name="" value="" placeholder="" id="everyPage" onchange="change()"> 条/
+                共<span id="totalRecords"></span>条
+                第 <input id="page" type="text" name="" value="" placeholder="" onchange="changeP()"> 页
+                /共 <span id="totalPages"></span> 页
+                <div class="scroll-btn">
+                  <a href="javascript:void(0)" class="btn">跳转</a>
+                  <a id="topPageNo" href="#" class="btn">首 页</a> <a id="up" href="#" class="btn">上一页</a>
+                  <a id="next" href="javascript:ajaxactivity(,);" class="btn">下一页</a>
+                  <a id="bottomPageNo" href="javascript:ajaxactivity(,);" class="btn">尾 页</a>
+
+                </div>
+
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <p>服务电话：400-006-7005 （9:00-24:00）</p>
+      <p>Copyright © 2016 北京智鼎优源管理咨询有限公司 . All Rights Reserved</p>
+    </div>
+  </div>
+</body>
+<script src="../js/selectFun.js" type="text/javascript" charset="utf-8"></script>
+</html>
