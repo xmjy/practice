@@ -1,4 +1,4 @@
-package com.xm.jy.job_51.mianTest;
+package com.xm.jy.test.comparator_comparable;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @date: 2020/12/17 17:12
  * @description: 利用比较器排序
  */
-public class SortByComparator {
+public class CombinationProductSort {
     private static ArrayList<JSONObject> pendingList;
 
     static {
