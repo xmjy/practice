@@ -2,12 +2,13 @@ package com.xm.jy.test.io;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.annotation.Resource;
 
 /**
  * @author: albert.fang
@@ -16,7 +17,7 @@ import javax.annotation.Resource;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class FxmTest {
+public class FxmTest implements ApplicationContextAware {
 
 
 //    @Resource(type = String.class)
@@ -31,6 +32,8 @@ public class FxmTest {
     @Autowired @Qualifier("methodInTheClass2")
     private String methodInTheClass21;
 
+    private ApplicationContext ctx;
+
 
     /**
      * 使用@Autowried来注入使用@Bean注入到IOC容器里的beans
@@ -39,5 +42,19 @@ public class FxmTest {
     public void testBeanAnnotation(){
         System.out.println(intheclass1);
         System.out.println(methodInTheClass21);
+    }
+
+    @Test
+    public void printIOCBeans(){
+        for (String beanDefinitionName : ctx.getBeanDefinitionNames()) {
+            System.out.println("Bean >>> " + beanDefinitionName);
+        }
+        System.out.println("*********************");
+        System.out.println(ctx.getBeanDefinitionCount());
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        ctx = applicationContext;
     }
 }

@@ -1,21 +1,18 @@
 package com.xm.jy;
 
 import com.xm.jy.job_51.aware.ApplicationContextAwareTest;
-import com.xm.jy.job_cx.aspect.AllActionAspect;
-import com.xm.jy.test.ioc.entity.ComponentAndBean;
-import com.xm.jy.test.ioc.entity.People;
-import com.xm.jy.test.ioc.entity.Person;
-import com.xm.jy.test.ioc.entity.Pet;
+import com.xm.jy.job_51.aware.DetectBeans;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-//import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
+
+import java.util.Date;
+
+//import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 //@EnableScheduling
@@ -30,12 +27,21 @@ public class PracticeApplication extends SpringBootServletInitializer {
             System.out.println("Bean >>> " + beanDefinitionName);
         }
         System.out.println("共有：" + ctx.getBeanDefinitionCount()+"个");
-        System.out.println(ctx.getBean("methodInTheClass2").toString());
-        System.out.println(ctx.getBean("detectBeans").toString());
+        System.out.println(ctx.getBean("methodInTheClass2",String.class));
+        System.out.println(ctx.getBean("detectBeans", DetectBeans.class));
         // 比较通过ApplicationContextWare获得的applicationContext是否和SpringApplication.run获取到的一致
         // 结论：一致的，同一个applicationContext对象
-        ApplicationContextAwareTest applicationContextAwareTest = (ApplicationContextAwareTest)ctx.getBean("applicationContextAwareTest");
+        ApplicationContextAwareTest applicationContextAwareTest = ctx.getBean("applicationContextAwareTest",ApplicationContextAwareTest.class);
         System.out.println(applicationContextAwareTest.ctx.equals(ctx));
+
+        // 看看上下文（IOC容器）对象里有哪些东西
+        System.out.println("上下文的Id（应用的端口Id）：" + ctx.getId());
+        System.out.println("上下文的applicationName：" + ctx.getApplicationName());
+        System.out.println("上下文的displayName：" + ctx.getDisplayName());
+        System.out.println("上下文的创建开始时间：" + new Date(ctx.getStartupDate()));
+        System.out.println("上下文的parents：" + ctx.getParent());
+        System.out.println("上下文的AutowireCapableBeanFactory：" + ctx.getAutowireCapableBeanFactory().toString());
+
     }
 
     @Override
