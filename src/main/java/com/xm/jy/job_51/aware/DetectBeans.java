@@ -1,17 +1,7 @@
 package com.xm.jy.job_51.aware;
 
-import lombok.Data;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.constraints.Max;
-import java.lang.annotation.Inherited;
 
 /**
  * @author: albert.fang
