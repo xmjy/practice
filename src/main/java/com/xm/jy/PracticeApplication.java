@@ -1,7 +1,7 @@
 package com.xm.jy;
 
-import com.xm.jy.job_51.aware.ApplicationContextAwareTest;
-import com.xm.jy.job_51.aware.DetectBeans;
+import com.xm.jy.test.aware.ApplicationContextAwareTest;
+import com.xm.jy.test.aware.DetectBeans;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

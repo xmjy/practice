@@ -1,4 +1,4 @@
-package com.xm.jy.job_51.aware;
+package com.xm.jy.test.aware;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
