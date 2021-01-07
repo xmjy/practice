@@ -14,6 +14,9 @@ import java.util.Date;
 
 //import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/**
+ * @author albert.fang
+ */
 @SpringBootApplication
 //@EnableScheduling
 @MapperScan(basePackages = "com.xm.jy.job_cx.dao")

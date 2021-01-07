@@ -10,7 +10,7 @@ import com.xm.jy.designpattern.factorydesign.factorymethod.picture.AbstractPictu
 public abstract class AbstractFactory {
 
     /**
-     *
+     * 创建图片
      * @return 返回创建的具体类型图片
      */
     public abstract AbstractPicture createPicture();
