@@ -12,7 +12,7 @@ public class HungrySingleTonPattern {
     }
     private static final HungrySingleTonPattern HUNGRY = new HungrySingleTonPattern();
 
-    public HungrySingleTonPattern getInstance(){
+    public static HungrySingleTonPattern getInstance(){
         return HUNGRY;
     }
 
