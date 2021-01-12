@@ -16,7 +16,7 @@ public class ProtoTypeManagerTest {
         srs2.displayOfficialDocument();
         OfficialDocument far2 = manager.getOfficialDocument("far");
         far2.displayOfficialDocument();
-        // 是浅拷贝出来的应用类型，所以应为两个false
+        // 是浅拷贝出来的引用类型，所以应为两个false；浅拷贝，原型对象和克隆对象里的引用类型属性共有同一个内存地址。
         System.out.println(srs1 == srs2);
         System.out.println(far1 == far2);
     }
