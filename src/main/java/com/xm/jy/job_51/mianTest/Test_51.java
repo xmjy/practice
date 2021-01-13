@@ -1,6 +1,5 @@
 package com.xm.jy.job_51.mianTest;
 
-import java.text.ParseException;
 
 /**
  * @author: albert.fang
@@ -8,7 +7,7 @@ import java.text.ParseException;
  * @description: 随便测试的内容，随测随删
  */
 public class Test_51 {
-    public static void main(String[] args) throws ParseException, InterruptedException {
-        System.out.println("在主分支上做出改动");
+    public static void main(String[] args) {
+
     }
 }
