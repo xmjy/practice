@@ -69,10 +69,10 @@
         const ull = document.createElement("ul");
         ull.innerHTML = "<li>通过node.innerHTML也能向某个节点插入另外一个节点</li>";
         const div = document.createElement("div");
-        let html = "<div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' target='_self'>go to baidu</a></span></div>"
+        let html = "<div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' abstractTarget='_self'>go to baidu</a></span></div>"
         div.innerHTML = html;
         document.body.appendChild(div);
-        document.write("<br><div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' target='_self'>go to baidu</a></span></div>");
+        document.write("<br><div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' abstractTarget='_self'>go to baidu</a></span></div>");
         document.getElementById('results').innerHTML = "<li>通过node.innerHTML也能向某个节点插入另外一个节点</li>";
         // 声明一个变量，但是未初始化，那么默认是undefined
         var value;

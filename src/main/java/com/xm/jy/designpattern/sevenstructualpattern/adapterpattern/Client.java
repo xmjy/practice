@@ -7,8 +7,8 @@ package com.xm.jy.designpattern.sevenstructualpattern.adapterpattern;
  */
 public class Client {
     public static void main(String[] args) {
-        Target target = new Adapter();
-        target.stargeData();
-        target.encrypted();
+        AbstractTarget abstractTarget = new Adapter();
+        abstractTarget.stargeData();
+        abstractTarget.encrypted();
     }
 }

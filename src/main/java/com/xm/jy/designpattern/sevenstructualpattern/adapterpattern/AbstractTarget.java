@@ -5,7 +5,7 @@ package com.xm.jy.designpattern.sevenstructualpattern.adapterpattern;
  * @date: 2021/1/14 11:20
  * @description: 目标
  */
-public abstract class Target {
+public abstract class AbstractTarget {
 
     public void stargeData(){
         System.out.println("将加密好的信息存储到数据库");
