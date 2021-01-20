@@ -25,5 +25,15 @@
         select * from user where user_name = #{userName}
     </select>
 
+    <!-- 只有一条记录的话 直接用map接-->
+    <select id="getSingleUserIdAndName" resultType="map">
+        select * from user where user_nickname = 23
+    </select>
+
+    <!-- 多个的话用list接，list里放map-->
+    <select id="getUserIdAndName" resultType="map">
+        select * from user
+    </select>
+
 
 </mapper>
