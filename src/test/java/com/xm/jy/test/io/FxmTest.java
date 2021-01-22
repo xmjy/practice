@@ -1,5 +1,8 @@
 package com.xm.jy.test.io;
 
+import com.xm.jy.job_cx.criteria.OrderDetailExample;
+import com.xm.jy.job_cx.dao.OrderDetailMapper;
+import com.xm.jy.job_cx.model.OrderDetail;
 import com.xm.jy.job_cx.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,9 +18,8 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author: albert.fang
@@ -45,6 +47,9 @@ public class FxmTest implements ApplicationContextAware {
     private String methodInTheClass21;
 
     private ApplicationContext ctx;
+
+    @Resource
+    private OrderDetailMapper orderDetailMapper;
 
     /**
      * 使用@Autowried来注入使用@Bean注入到IOC容器里的beans
@@ -95,11 +100,37 @@ public class FxmTest implements ApplicationContextAware {
         System.out.println(requestMappingUrls);
     }
 
+    /**
+     * 返回map的list
+     * 返回map
+     */
     @Test
     public void testMybatisReturnMap(){
         List<Map> userIdAndName = userService.getUserIdAndName();
         Map singleUserIdAndName = userService.getSingleUserIdAndName();
         System.out.println(userIdAndName.toString());
         System.out.println(singleUserIdAndName.toString());
+    }
+
+    /**
+     * 验证mybatis generator逆向工程生成的XXXExample作用
+     */
+    @Test
+    public void testMybatisGeneratorExampleCriteria(){
+        OrderDetail orderDetail = new OrderDetail();
+        OrderDetailExample orderDetailExample = new OrderDetailExample();
+        OrderDetailExample.Criteria criteria = orderDetailExample.createCriteria();
+//        criteria.andDetailIdLike("%6007959982568007%");
+//        criteria.andDetailIdEqualTo("1556008207527681746");
+        criteria.andDetailIdIn(Arrays.asList("1556007951656310027","1556008207527681746","1556008880393310158","2343"));
+//        orderDetailExample.setOrderByClause("detail_id desc");
+        List<OrderDetail> orderDetails = orderDetailMapper.selectByExample(orderDetailExample);
+        Map<String, List<OrderDetail>> collect = orderDetails.stream().collect(Collectors.groupingBy(OrderDetail::getDetailId));
+        collect.forEach((key,value) -> {
+            System.out.println(key);
+            value.forEach(v -> {
+                System.out.println(v.toString());
+            });
+        });
     }
 }
