@@ -29,7 +29,7 @@
         });
         // 剪贴板事件: copy、paste、cut
         document.querySelector('textarea').addEventListener('copy',function (event) {
-            console.log(`在可输入的文本元素上，选中文字再复制触发，本次复制了文本：${event.abstractTarget.value.substring(event.abstractTarget.selectionStart,event.abstractTarget.selectionEnd)} —— copy`)
+            console.log(`在可输入的文本元素上，选中文字再复制触发，本次复制了文本：${event.target.value.substring(event.target.selectionStart,event.target.selectionEnd)} —— copy`)
         });
         document.querySelector('textarea').addEventListener('paste',function (event) {
             console.log("触发了剪贴板的粘贴事件")

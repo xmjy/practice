@@ -63,7 +63,7 @@
         });
         document.querySelector('#eleventh input').addEventListener('select',function (event) {
             console.log(event);
-            var text = event.abstractTarget.value.substring(event.abstractTarget.selectionStart,event.abstractTarget.selectionEnd);
+            var text = event.target.value.substring(event.target.selectionStart,event.target.selectionEnd);
             console.log(`在元素内有input文本框的文字被选中，被选中的文字是： ${text} —— select`);
         });
         document.querySelector('#twelfth').addEventListener('wheel',function (event) {
