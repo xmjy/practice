@@ -1,6 +1,5 @@
 package com.xm.jy.test.designpattern.sixcreationpattern.factorydesign.simplefactory;
 
-import com.xm.practice.constants.DesignPatternConstants;
 
 /**
  * @author: albert.fang
@@ -18,13 +17,13 @@ public class ShapeFactory {
      */
     public static AbstractShape getShape(String type) throws UnSupportShapeException {
         AbstractShape shape = null;
-        if (DesignPatternConstants.ROUND.equalsIgnoreCase(type)){
+        if ("round".equalsIgnoreCase(type)){
             shape = new Round();
         }
-        else if (DesignPatternConstants.SQUARE.equalsIgnoreCase(type)){
+        else if ("square".equalsIgnoreCase(type)){
             shape = new Square();
         }
-        else if (DesignPatternConstants.TRIANGLE.equalsIgnoreCase(type)){
+        else if ("triangle".equalsIgnoreCase(type)){
             shape = new Triangle();
         }
         else {
