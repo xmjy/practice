@@ -12,8 +12,9 @@ public class LambdaMapMethod {
     public static void main(String[] args) {
         // List
         List<String> telephones = new ArrayList<>();
-        telephones.add("12333126601 ");
-        telephones.add(" 12333126601");
+        telephones.add("12333126601x");
+        telephones.add(" 1233312660s1414");
+        telephones.add(" 1233312660141423");
         List<String> finP = telephones.stream().map(String::trim).distinct().collect(Collectors.toList());
         System.out.println();
         // Map
@@ -26,5 +27,6 @@ public class LambdaMapMethod {
         List<Boolean> cc = hashMap.entrySet().stream().map(entry -> entry.getValue().contains("bbcc")).collect(Collectors.toList());
         List<Map.Entry<String, String>> bbb = hashMap.entrySet().stream().filter(entry -> entry.getValue().contains("cc")).collect(Collectors.toList());
         System.out.println();
+
     }
 }

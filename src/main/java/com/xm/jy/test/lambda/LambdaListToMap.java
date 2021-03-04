@@ -20,6 +20,12 @@ public class LambdaListToMap {
 //        Map<Integer, User> userMap = arrayList.stream().collect(Collectors.toMap(a -> a.getId(), a -> a));
         Map<Integer, User> userMap = arrayList.stream().collect(Collectors.toMap(User::getId, a -> a));
         System.out.println(userMap);
+
+        // findFirst 获取流中第一个对象
+        // findAny 获取流中任意一个
+        // ifPresent（logic） 如果存在，执行logic部分代码
+        arrayList.stream().findAny().ifPresent(user -> user.setName("第一个名字"));
+        System.out.println(arrayList.get(0));
     }
 }
 @Data
