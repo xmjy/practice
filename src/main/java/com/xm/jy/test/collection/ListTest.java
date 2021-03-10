@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 
 /**
  * @auther 方翔鸣
@@ -20,13 +21,20 @@ public class ListTest {
         Collections.swap(arrayList,0,2);
 
         // 将index 为 9 的提到首位 add(index,element)
-        User removeElement = arrayList.remove(9);
+        User removeElement = arrayList.remove(0);
         arrayList.add(0,removeElement);
-        arrayList.forEach(System.out::println);
+//        arrayList.forEach(System.out::println);
 
         // 获取具体元素的index,indexOf
-        System.out.println(arrayList.indexOf(arrayList.get(6)));
+//        System.out.println(arrayList.indexOf(arrayList.get(6)));
 
+        // remove null、orElse()
+        Optional<User> first = arrayList.stream().filter(user -> user.getId() == 10).findFirst();
+        if (first.orElse(null) != null){
+            arrayList.remove(first.orElse(null));
+            arrayList.add(0,first.orElse(null));
+        }
+        arrayList.forEach(System.out::println);
     }
 }
 
