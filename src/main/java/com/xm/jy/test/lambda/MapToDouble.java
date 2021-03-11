@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author: albert.fang
  * @date: 2021/3/11 17:32
- * @description: lambda表达式之mapToDouble api使用
+ * @description: lambda表达式之mapToDouble api使用（求和、最大、最小、平均）
  */
 public class MapToDouble {
     public static void main(String[] args) {
