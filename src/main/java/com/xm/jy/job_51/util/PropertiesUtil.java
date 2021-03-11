@@ -27,6 +27,7 @@ public class PropertiesUtil {
 	//设置加载配置文件名称
 	private static Set<String> setProperty = new HashSet() {{
 		add("util.properties");
+		add("config.properties");
 	}};
 	
 	/**
