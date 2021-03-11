@@ -12,6 +12,8 @@ public class Reduce {
     public static void main(String[] args) {
         test1();
         test2();
+        test3();
+        test4();
     }
 
     private static void test1(){
@@ -26,5 +28,17 @@ public class Reduce {
             init += value;
             return init;
         }));
+    }
+
+    private static void test3(){
+        System.out.println(Stream.of(1, 2, 3, 4, 5, 6).reduce((var1, var2) -> {
+            return var1 + var2;
+        }));
+    }
+
+    private static void test4(){
+        System.out.println(Stream.of(1, 3, 5, 7, 9).reduce(Integer::sum));
+        System.out.println(Stream.of(1, 3, 5, 7, 9).reduce(Integer::max));
+        System.out.println(Stream.of(1, 3, 5, 7, 9).reduce(Integer::min));
     }
 }
