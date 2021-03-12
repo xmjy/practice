@@ -32,6 +32,7 @@ public class Reduce {
 
     private static void test3(){
         System.out.println(Stream.of(1, 2, 3, 4, 5, 6).reduce((var1, var2) -> {
+            System.out.printf("%d-%d%s",var1,var2,",");
             return var1 + var2;
         }));
     }
