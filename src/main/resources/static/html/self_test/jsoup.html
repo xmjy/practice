@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="team-m-w-character-analysis">
+    <table class="report-table" data-analysis='{"row":"asdf","normal":"sf","high":"dsfasdf"} & {"row":"asdf","normal":"sf","high":"dsfasdf"}'>
+        <tr>
+            <th rowspan="2">名称</th>
+            <th rowspan="2">性格维度定义</th>
+            <th colspan="3">人数百分比</th>
+        </tr>
+        <tr>
+            <th class="th-blue">低分表现</th>
+            <th class="th-blue">中等表现</th>
+            <th class="th-blue">高分表现</th>
+        </tr>
+        <tr>
+            <td>创新</td>
+            <td class="text-left">对新事物、新想法是开放的，还是持保留态度的。</td>
+            <td>14.3%</td>
+            <td>85.7%</td>
+            <td>0.0%</td>
+        </tr>
+        <tr>
+            <td>前瞻性</td>
+            <td class="text-left">思考问题的立足点：长远还是当下。</td>
+            <td>14.3%</td>
+            <td>85.7%</td>
+            <td>0.0%</td>
+        </tr>
+        <tr>
+            <td>理论思考</td>
+            <td class="text-left">对事物本质的兴趣：是思考本质，还是思考现象。</td>
+            <td>0.0%</td>
+            <td>100.0%</td>
+            <td>0.0%</td>
+        </tr>
+        <tr>
+            <td>质疑</td>
+            <td class="text-left">对环境是怀疑的，还是信任的。</td>
+            <td>0.0%</td>
+            <td>100.0%</td>
+            <td>0.0%</td>
+        </tr>
+        <tr>
+            <td>数据导向</td>
+            <td class="text-left">更喜欢接触数据和事实，还是更关注直觉和感受。</td>
+            <td>0.0%</td>
+            <td>100.0%</td>
+            <td>0.0%</td>
+        </tr>
+        <tr>
+            <td>实践性</td>
+            <td class="text-left">学习和思考的方式：愿意动手，还是倾向于动脑。</td>
+            <td>14.3%</td>
+            <td>71.4%</td>
+            <td>14.3%</td>
+        </tr>
+        <tr>
+            <td>关注细节</td>
+            <td class="text-left">思考问题的切入点：是局部、还是整体。</td>
+            <td>28.6%</td>
+            <td>71.4%</td>
+            <td>0.0%</td>
+        </tr>
+    </table>
+
+    <table class="report-table">
+
+    </table>
+</div>
+</body>
+<script>
+    (function () {
+        var mAnalysis = document.querySelector("#team-m-w-character-analysis .report-table:nth-child(1)");
+        var mAnalysisArray = mAnalysis.getAttribute("data-analysis").split("&");
+        for(var i=0;i<mAnalysisArray.length;i++){
+            var dataAnalysis = JSON.parse(mAnalysisArray[i]);
+            var mAHtml = "<td>" + dataAnalysis.row + "</td>";
+            mAHtml += "<td>" + dataAnalysis.normal + "</td>";
+            mAHtml += "<td>" + dataAnalysis.high + "</td>";
+            mAnalysis.querySelector("tr:nth-child("+(i+3)+")").insertAdjacentHTML("beforeend",mAHtml);
+        }
+    })();
+</script>
+</html>

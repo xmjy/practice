@@ -1,6 +1,13 @@
 package com.xm.jy.test.lambda;
 
+import lombok.Data;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -42,4 +49,50 @@ public class Reduce {
         System.out.println(Stream.of(1, 3, 5, 7, 9).reduce(Integer::max));
         System.out.println(Stream.of(1, 3, 5, 7, 9).reduce(Integer::min));
     }
+
+    @Test
+    void test(){
+        System.out.println(convertDoubleToPercent(0.0003d));
+        System.out.println(convertDoubleToPercent(0.0006d));
+
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("A",1);
+        System.out.println(hashMap.get("B") == null);
+        List<String> collect = Stream.of("1", "3", "<6%").collect(Collectors.toList());
+        if (collect.contains("<6%")) {
+            collect.remove("<6%");
+        }
+        System.out.println(collect.toString());
+    }
+
+    /**
+     * 将double四色五入保留一位小数之后，转成百分号字符串
+     */
+    public static String convertDoubleToPercent(double doubleValue){
+        if (doubleValue > 0 && doubleValue < 0.0005 ){
+            return String.format("%s","<0.1%");
+        }
+        return String.format("%.1f%s", doubleValue * 100,"%");
+    }
+
+    @Test
+    void testReduce(){
+        List<String> aa = new ArrayList<>();
+        aa.add("34.5%");
+        aa.add("14.5%");
+        aa.add("454.5%");
+        aa.add("324.5%");
+        System.out.println(getMaxFromStrPercent(aa));
+    }
+
+    private static String getMaxFromStrPercent(List<String> percents){
+        return percents.stream().map(v -> new Double(v.substring(0, v.length() - 1))).mapToDouble(Double::doubleValue).max().getAsDouble() + "%";
+    }
+}
+
+@Data
+class Student{
+    private String name;
+    private String sex;
+    private Integer age;
 }

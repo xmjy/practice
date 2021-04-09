@@ -1,6 +1,13 @@
 package com.xm.jy.test.lambda;
 
+import org.junit.jupiter.api.Test;
+import org.springframework.util.CollectionUtils;
+
+import java.text.DecimalFormat;
+import java.text.FieldPosition;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author: albert.fang
@@ -8,30 +15,80 @@ import java.util.ArrayList;
  * @description: lambda表达式之mapToDouble api使用（求和、最大、最小、平均）
  */
 public class MapToDouble {
-    public static void main(String[] args) {
-//       test1();
-        test2();
-    }
 
+    @Test
     private static void test1(){
         ArrayList<Double> doubles = new ArrayList<>();
-        doubles.add(2.3333);
-        doubles.add(2.333);
-        doubles.add(2.34444);
+        doubles.add(2.3);
+        doubles.add(2.3);
+        doubles.add(2.3);
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).sum());
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).max().orElse(0.0));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).min().orElse(0.0));
+        System.out.println(doubles.stream().mapToDouble(Double::doubleValue).max().orElse(0.0) == doubles.stream().mapToDouble(Double::doubleValue).min().orElse(0.0));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).average().orElse(0.0));
     }
 
-    private static void test2(){
+    @Test
+    void test2(){
         ArrayList<String> stringDoubles = new ArrayList<>();
-        stringDoubles.add("23.223");
-        stringDoubles.add("23.233");
-        stringDoubles.add("23.223");
+        stringDoubles.add("23.2231");
+        stringDoubles.add("23.2332");
+        stringDoubles.add("23.2233");
+        Collections.reverse(stringDoubles);
+        System.out.println(stringDoubles.toString());
         System.out.println(stringDoubles.stream().map(Double::new).mapToDouble(Double::doubleValue).sum());
         System.out.println(stringDoubles.stream().map(Double::new).mapToDouble(Double::doubleValue).max());
         System.out.println(stringDoubles.stream().map(Double::new).mapToDouble(Double::doubleValue).min());
         System.out.println(stringDoubles.stream().map(Double::new).mapToDouble(Double::doubleValue).average());
+    }
+
+    @Test
+    void testPrecision(){
+        System.out.println(formatDigit(12.2, 2));
+        System.out.println(formatDigit(12.234, 2));
+        System.out.println(formatDigit(12.256, 2));
+        double a = 2.345,b = 2.345;
+        if (a == b) {
+            System.out.println("想的呢个");
+        }
+        String aa = null;
+        set(aa);
+        System.out.println(aa);
+    }
+
+    private static double formatDigit(double num, int decimalPlace) {
+        DecimalFormat fm = null;
+        switch (decimalPlace) {
+            case 0:
+                fm = new DecimalFormat("##");
+                break;
+            case 1:
+                fm = new DecimalFormat("##.#");
+                break;
+            case 2:
+                fm = new DecimalFormat("##.##");
+                break;
+            case 3:
+                fm = new DecimalFormat("##.###");
+                break;
+            case 4:
+                fm = new DecimalFormat("##.####");
+                break;
+            default:
+                break;
+        }
+
+        if (fm == null) {
+            return num;
+        }
+
+        StringBuffer sbf = new StringBuffer();
+        fm.format(num, sbf, new FieldPosition(java.text.NumberFormat.FRACTION_FIELD));
+        return Double.parseDouble(sbf.toString());
+    }
+
+    private void set(String aa){
+        aa = "sfsdf";
     }
 }
