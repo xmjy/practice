@@ -91,4 +91,5 @@ public class MapToDouble {
     private void set(String aa){
         aa = "sfsdf";
     }
+
 }
