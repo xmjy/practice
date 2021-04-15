@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @auther 方翔鸣
@@ -34,11 +36,12 @@ public class FileTest {
     }
 
     @Test
-    void testParentFileList(){
-        // if path is root path，may produce NPE
-        File file = new File("E:\\zhiding\\images\\favicon.ico");
+    void testParentFileList() throws InterruptedException {
+        // multiThread
+        File file = new File("E:\\parentFile\\file.txt");
         if (file.exists()){
-            for (File listFile : file.getParentFile().listFiles()) {
+            TimeUnit.SECONDS.sleep(10);
+            for (File listFile : Objects.requireNonNull(file.getParentFile().listFiles())) {
                 log.info(listFile.getAbsolutePath());
             }
         }
@@ -46,10 +49,10 @@ public class FileTest {
 
     @Test
     void testFileList(){
-        // if path specified not folder,may produce NPE
-        File file = new File("E:\\zhiding\\images\\favicon.ico");
+        // 给parentFile无权限读取
+        File file = new File("E:\\parentFile\\file.txt");
         if (file.exists()){
-            for (File listFile : Objects.requireNonNull(file.listFiles(),"listfiles 不能为空")) {
+            for (File listFile : Objects.requireNonNull(file.getParentFile().listFiles(),"listfiles 不能为空")) {
                 log.info(listFile.getAbsolutePath());
             }
         }
@@ -57,19 +60,18 @@ public class FileTest {
 
     @Test
     void testFileListWhenFolder(){
-        File file = new File("E:\\zhiding\\images\\");
-        if (file.exists()) {
-            for (File listFile : Objects.requireNonNull(file.listFiles(),"rtyrty")) {
-                log.info(listFile.getAbsolutePath());
-            }
-        }
+        System.out.println(3/(double)2);
+    }
+
+    /**
+     * 将double四色五入保留一位小数之后，转成百分号字符串
+     */
+    public static String convertDoubleToPercent(double doubleValue){
+        return String.format("%.1f%s", doubleValue * 100,"%");
     }
 
     @Test
-    void testForeach(){
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (String single : Objects.requireNonNull(arrayList,"arraryList 为null")) {
-            System.out.println(single);
-        }
+    void testDouble(){
+        System.out.println(convertDoubleToPercent(0.0654));
     }
 }
