@@ -1,5 +1,10 @@
 package com.xm.jy;
 
+import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * @author: albert.fang
  * @date: 2021/3/15 11:25
@@ -17,6 +22,9 @@ public class PPI {
         double yPow = Math.pow(y, 2);
         double bevel = Math.sqrt(xPow + yPow);
         System.out.printf("斜边像素数是%f \n",bevel);
-        return bevel / 23.8;
+        return bevel / 15.6;
     }
+
+
+
 }

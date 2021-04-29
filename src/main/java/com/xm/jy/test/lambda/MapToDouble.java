@@ -8,6 +8,7 @@ import java.text.FieldPosition;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: albert.fang
@@ -17,16 +18,34 @@ import java.util.List;
 public class MapToDouble {
 
     @Test
-    private static void test1(){
+    void test1(){
         ArrayList<Double> doubles = new ArrayList<>();
         doubles.add(2.3);
         doubles.add(2.3);
-        doubles.add(2.3);
-        System.out.println(doubles.stream().mapToDouble(Double::doubleValue).sum());
+        doubles.add(2.3333);
+        doubles.add(2.3333);
+        doubles.add(2.3563);
+        doubles.add(2.7863);
+        doubles.add(2.3333);
+        List<Double> sortedDoubles = doubles.stream().sorted(Double::compareTo).collect(Collectors.toList());
+        Collections.reverse(sortedDoubles);
+        double asDouble = doubles.stream().mapToDouble(Double::doubleValue).max().getAsDouble();
+        System.out.println(doubles.indexOf(asDouble));
+        System.out.println(getIndex(doubles, asDouble));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).max().orElse(0.0));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).min().orElse(0.0));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).max().orElse(0.0) == doubles.stream().mapToDouble(Double::doubleValue).min().orElse(0.0));
         System.out.println(doubles.stream().mapToDouble(Double::doubleValue).average().orElse(0.0));
+    }
+
+    public static <T extends Comparable<T>> List<Integer> getIndex(List<T> ts,T t){
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < ts.size(); i++) {
+            if(ts.get(i).compareTo(t) == 0){
+                result.add(i);
+            }
+        }
+        return result;
     }
 
     @Test

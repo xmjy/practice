@@ -88,6 +88,26 @@ public class Reduce {
     private static String getMaxFromStrPercent(List<String> percents){
         return percents.stream().map(v -> new Double(v.substring(0, v.length() - 1))).mapToDouble(Double::doubleValue).max().getAsDouble() + "%";
     }
+
+
+    @Test
+    void testToMap(){
+        List<Student> students = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Student student = new Student();
+            student.setName("sdf");
+            student.setSex("asdf");
+            student.setAge(i);
+            students.add(student);
+        }
+        Student student = new Student();
+        student.setAge(6);
+        student.setName("fsdfsf");
+        student.setSex("jljklklj");
+        students.add(student);
+        Map<Integer, String> collect = students.stream().collect(Collectors.toMap(Student::getAge, Student::getName,(v1,v2) -> v1));
+        System.out.println(collect.toString());
+    }
 }
 
 @Data
