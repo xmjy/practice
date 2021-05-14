@@ -80,6 +80,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <!-- 去除spring-boot-test 自带的junit4 -->
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
