@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+</head>
+<body>
+<ul id="results"></ul>
+<!--
+    ES6关键语法：
+        1、class关键字,里面有constructor构造方法，只能有一个；
+        2、可以使用extends关键字实现类之间的继承关系
+        3、子类必须通过super()显示调用父类的构造函数
+        4、子类对象可以调用父类的非静态方法
+        5、使用getter、setter方法控制对象的访问（注意在class中getter、setter方法的定义写法）
+-->
+<script>
+    // 基类
+    class Person{
+        constructor(){
+            console.log("ES6 语法中，子类必须通过super()显示调用父类的构造函数")
+        }
+
+        dance(ninja1){
+            assert(true,ninja1.name + "在跳舞");
+        }
+    }
+    class Ninja extends Person{
+        constructor(name,level){
+            super();
+            this.name = name;
+            this.level = level;
+            this.age = ["23","17","25"];
+        }
+
+        get firstAge(){
+            return this.age[0];
+        }
+
+        set firstAge(age){
+            this.age[0] = age;
+        }
+
+        swingSword(){
+            return true;
+        }
+
+        static compare(ninja1,ninja2){
+            return ninja1.level - ninja2.level;
+        }
+    }
+    var ninja1 = new Ninja("林就远",999);
+    var ninja2 = new Ninja("于欣欣",700);
+    assert(ninja1 instanceof Ninja,"ninja对象是Ninja类型的");
+    assert(ninja1.name === "林就远","class关键字");
+    assert(ninja1.swingSword(),"可以调用Ninja类里的方法");
+    console.log(Ninja.compare(ninja1,ninja2));
+    ninja2.dance(ninja1);
+    ninja2.dance(ninja2);
+    // ninja1.firstAge = 24;
+    assert(true,ninja1.firstAge);
+</script>
+</body>
+</html>

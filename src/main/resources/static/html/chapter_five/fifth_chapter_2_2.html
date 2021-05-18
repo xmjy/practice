@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精通函数：闭包——使用闭包</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+
+
+<ul id="results"></ul>
+<div id="xxx" style="width: 100px;height: 100px;background: beige;position: absolute;left: 200px;top:200px">
+    I'm hero;
+</div>
+
+<div id="yyy" style="width: 100px;height: 100px;background: #c7eed7;position: absolute;left: 200px;bottom:200px">
+    I'm hero;
+</div>
+
+<!-- 在Interval的回调函数中使用闭包-->
+<!-- 使用定时任务完成周期性的动画效果-->
+<script>
+    function setXXXAnimate(elementId) {
+        var elem = document.getElementById(elementId);
+        var tick_x = 0;
+        var tick_y = 0;
+        var flag = 0;
+        var timer = setInterval(function () {
+            var left = elem.style.left.substring(0,elem.style.left.lastIndexOf("p"));
+            var top = elem.style.top.substring(0,elem.style.top.lastIndexOf("p"));
+            if (flag === 0){
+                elem.style.left = Number(left) + 1 + "px";
+                elem.style.top = Number(top) + 1 + "px";
+                tick_x ++;
+                tick_y ++;
+                if (tick_x === 551){
+                    flag = 1;
+                }
+            }else if (flag === 1) {
+                elem.style.top = Number(top) - 1 + "px";
+                tick_y --;
+                if (tick_y === 0){
+                    flag = 2;
+                }
+            }else if (flag === 2) {
+                elem.style.left = Number(left) - 1 + "px";
+                tick_x --;
+                if (tick_x === 0){
+                    flag = 0;
+                }
+            }
+        },10);
+    }
+    function setYYYAnimate(elementId) {
+        var elem = document.getElementById(elementId);
+        var tick_x = 0;
+        var tick_y = 0;
+        var flag = 0;
+        var timer = setInterval(function () {
+            var left = elem.style.left.substring(0,elem.style.left.lastIndexOf("p"));
+            var bottom = elem.style.bottom.substring(0,elem.style.bottom.lastIndexOf("p"));
+            if (flag === 0){
+                elem.style.left = Number(left) + 1 + "px";
+                elem.style.bottom = Number(bottom) + 1 + "px";
+                tick_x ++;
+                tick_y ++;
+                if (tick_x === 551){
+                    flag = 1;
+                }
+            }else if (flag === 1) {
+                elem.style.bottom = Number(bottom) - 1 + "px";
+                tick_y --;
+                if (tick_y === 0){
+                    flag = 2;
+                }
+            }else if (flag === 2) {
+                elem.style.left = Number(left) - 1 + "px";
+                tick_x --;
+                if (tick_x === 0){
+                    flag = 0;
+                }
+            }
+        },10);
+    }
+    setXXXAnimate("xxx");
+    setYYYAnimate("yyy");
+</script>
+</body>
+</html>

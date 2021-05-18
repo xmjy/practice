@@ -1,0 +1,474 @@
+/*MAP涓枃鐗堟牱寮�
+	--- 搴旂敤鐨勪骇鍝侊細MAP-R
+*/
+.main{
+    width: 990px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Source Han Sans CN",'Microsoft YaHei',sans-serif;
+}
+.container{
+    height: 1402px;
+    font-size: 12pt;
+}
+
+div, li{
+    line-height: 20.8pt;
+}
+
+/*================== 灏侀潰鐨勬牱寮� ======================*/
+#page-cover {
+    font-size: 12.5pt;
+    background-image: url(../../reportimage/teamreport/cover.jpg);
+    background-size: contain;
+}
+.hiddenClass
+{
+    display:none;
+}
+/*鍏冪礌瀹氫綅*/
+.logo, .pdf-title, .user-info, .pdf-toc, .company-name, .cover-bg-top, .cover-bg-bottom, .title-main {
+    position: absolute;
+}
+/*鍏冪礌鏍峰紡*/
+.logo{
+    left: 115px;
+    top: 135px;
+    z-index: 100;
+}
+.company-name{
+    bottom: 100px;
+    left: 654px;
+    font-size: 18px;
+}
+
+.pdf-title {
+    top: 379px;
+    z-index: 100;
+    padding: 8px 0;
+    border: 0;
+    font-size: 66px;
+    font-weight: bold;
+    color: #DDDDDD;
+    width: 100%;
+    text-align: center;
+    line-height: 66px;
+}
+
+.title-main {
+    top: 455px;
+    z-index: 100;
+    padding: 8px 0;
+    border: 0;
+    font-size: 98px;
+    font-weight: bold;
+    color: #4886BE;
+    width: 100%;
+    text-align: center;
+    line-height: 98px;
+}
+.user-info{
+    left: 87px;
+}
+
+.pdf-toc{
+    right: 80px;
+    z-index: 100;
+}
+
+.pdf-toc .cover-menu {
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.user-info,.pdf-toc{
+    top: 664px;
+
+    line-height: 32px;
+}
+
+.toc-links li{
+    font-size: 15px;
+    text-align: right;
+}
+/*================== 姝ｆ枃閫氱敤鐨勬牱寮� ======================*/
+.header,.content,.footer, .note-area{
+    position: absolute;
+}
+.header, .footer{
+    left: 20px;
+    width: 950px;
+}
+.header{
+    top: 60px;
+}
+.footer{
+    bottom: 38px;
+}
+.content, .note-area{
+    left: 35px;
+    width: 928px;
+}
+.note-area{
+    bottom: 70px;
+}
+.content{
+    top: 80px;
+    line-height: 17pt;
+    height: 89%;
+}
+.left-part .content, .right-part .content
+{
+    position: static;
+    height: auto;
+    font-size: inherit;
+    width: 100%;
+}
+.p-title{
+    margin: .8em 0;
+    font-size: 14pt;
+    color: #666;
+}
+.text-bottom{
+    position: absolute;
+    bottom: 5px;
+}
+/*鏍囬鐢熸垚鐩綍*/
+.h-top h1,.h-top h2,.p-title h1{
+    float: left;
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+}
+/*椤电湁*/
+.h-top{
+    position: relative;
+    width: 100%;
+    height: 1px;
+    border-bottom: 2pt solid #9f9fa0;
+}
+.h-top .subname, .h-top .name{
+    position: absolute;
+    bottom: -100%;
+    margin-bottom: 5px;
+}
+
+.h-top .name{
+    right: 0px;
+    font-size: 20pt;
+    color: #40B9BB;
+}
+.headline-1 {
+    display: inline-block;
+}
+/*椤佃剼*/
+.f-line{
+    height: 15px;
+}
+.f-line li{
+    float: left;
+    width: 237px;
+    height: 12px;
+}
+.f-line li.bg-dark{
+    background: #68776F;
+    box-shadow: 0px 1px 5px #68776F;
+}
+.f-line li.bg-blue{
+    background: #639DB6;
+    box-shadow: 0px 1px 5px #639DB6;
+}
+.f-line li.bg-cyan{
+    background: #5AC0C9;
+    box-shadow: 0px 1px 5px #5AC0C9;
+}
+.f-line li.bg-gray{
+    background: #E8EDF1;
+    box-shadow: 0px 1px 5px #E8EDF1;
+}
+/*椤佃剼鏂板淇℃伅*/
+.f-info {
+    clear: both;
+    position: relative;
+    font-size: 11.5pt;
+    color: #999;
+}
+.f-report-name,
+.page-no,
+.f-userinfo {
+    position: absolute;
+    top: 3px;
+}
+.f-userinfo {
+    left: 20px;
+}
+.f-u-code,
+.f-u-name,
+.f-u-validity {
+    float: left;
+}
+.f-u-code,
+.f-u-name {
+    margin-right: 35px;
+}
+.f-report-name {
+    right: 60px;
+}
+.page-no {
+    right: 6px;
+}
+/*姝ｆ枃*/
+.p-title{
+    margin: .8em 0;
+    font-size: 16pt;
+    color: #40B9BB;
+}
+
+/*椤甸潰璇存槑*/
+.notes{
+    margin-top: 20px;
+    font-size: 11pt;
+}
+.notes p{
+    margin: 0.5em 0;
+}
+
+ul.ul-dot
+{
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.title-green
+{
+    color: #40B9BB;
+}
+
+/*================== 闃呰鎸囧紩鐨勬牱寮� ======================*/
+#sn-report-value,#sn-specialnote,#sn-exam-validity{
+    margin-top: 50px;
+}
+#page-introduction .p-title{
+    display: inline-block;
+}
+#page-introduction .p-title-image {
+    width: 38px;
+    height: 56px;
+    background-size: 32px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+/*鏈夋晥鎬�*/
+#sn-exam-validity .p-title {
+    height: 25px;
+}
+
+#sn-test-info .p-title-image
+{
+    background-image: url(../../reportimage/teamreport/intro.png);
+}
+
+#sn-specialnote .p-title-image
+{
+    background-image: url(../../reportimage/teamreport/special.png);
+}
+
+#sn-exam-validity .p-title-image
+{
+    background-image: url(../../reportimage/teamreport/effective.png);
+}
+
+/*================== 缁撴灉姒傝鐨勬牱寮� ======================*/
+.basic-title {
+    font-size: 20pt;
+    color: #40B9BB;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.basic-table-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.basic-table-content, .basic-table-content2 {
+    margin-top: 13px;
+    width: auto;
+    max-width: 100%;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+.basic-table-content th, .basic-table-content td, .basic-table-content2 th, .basic-table-content2 td  {
+    text-align: center;
+    height: 36px;
+    width: 80px;
+}
+.basic-table-content th, .basic-table-content2 th {
+    background-color: #0D7ABB;
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 14px;
+    border-radius: 4px 4px 0 0;
+}
+.basic-table-content th.hidden-head, .basic-table-content2 th.hidden-head {
+    background-color: transparent;
+}
+.basic-table-content td, .basic-table-content2 td {
+    font-size: 14px;
+    border-radius: 4px;
+    border: dashed 1px #CCCCCC;
+}
+.basic-table-content td:first-child, .basic-table-content th:first-child, .basic-table-content2 th:first-child, .basic-table-content2 td:first-child {
+    width: auto;
+    min-width: 60px;
+    padding: 0 10px;
+}
+.basic-table-content tr:nth-child(even) td {
+    background-color: #FFFFFF;
+}
+.basic-table-content tr:nth-child(odd) td {
+    background-color: #F3F3F3;
+}
+.basic-table-content2 tr:nth-child(even) td {
+    background-color: #F3F3F3;
+}
+.basic-table-content2 tr:nth-child(odd) td {
+    background-color: #FFFFFF;
+}
+/*鐢ㄦ埛淇℃伅*/
+.user-exam-info{
+    height: 25px;
+    padding-bottom: 10px;
+}
+.user-exam-info li{
+    display: block;
+    float: left;
+    width: 33%;
+    overflow: hidden;
+}
+
+.report-table, .report-table-2 {
+    border-spacing: 3px;
+    border-collapse: separate;
+}
+
+.report-table td:first-child, .report-table tr:first-child th:first-child, .report-table-2 tr:first-child th:first-child, .report-table-2 td:first-child {
+    width: auto;
+    min-width: 60px;
+    padding: 0 10px;
+}
+
+.report-table th, .report-table-2 th {
+    color: #FFFFFF;
+    font-weight: normal;
+    border-radius: 4px 4px 0 0;
+    word-break: keep-all;
+}
+.report-table th:nth-child(even) {
+    background-color: #5AC0C9;
+}
+.report-table th:nth-child(odd) {
+    background-color: #0E7ABC;
+}
+.report-table-2 th:nth-child(even) {
+    background-color: #0E7ABC;
+}
+.report-table-2 th:nth-child(odd) {
+    background-color: #5AC0C9;
+}
+.report-table th.th-green {
+    background-color: #5AC0C9 !important;
+}
+.report-table th.th-blue {
+    background-color: #0E7ABC !important;
+}
+.report-table td, .report-table-2 td {
+    border-radius: 4px;
+    border: dashed 1px #CCCCCC;
+    text-align: center;
+}
+.report-table td.text-left, .report-table-2 td.text-left {
+    text-align: left;
+    padding-left: 15px;
+}
+.report-table td:first-child, .report-table-2 td:first-child {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+.report-table tr:nth-child(odd) td {
+    background-color: #FFFFFF;
+}
+.report-table tr:nth-child(even) td {
+    background-color: #F3F3F3;
+}
+.report-table-2 tr:nth-child(odd) td {
+    background-color: #F3F3F3;
+}
+.report-table-2 tr:nth-child(even) td {
+    background-color: #FFFFFF;
+}
+.report-table th.hidden-head, .report-table-2 th.hidden-head {
+    background-color: transparent;
+}
+.chart
+{
+    width: 100%;
+    height: 325px;
+}
+.chart-stripe
+{
+    width: 100%;
+    height: 150px;
+}
+.title-center
+{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+.report-left-right
+{
+    width: 100%;
+    table-layout: fixed;
+}
+.appendex-title {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.appendex-pie{
+    margin-top :40px;
+    width: 100%;
+}
+.appendex-pie-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+.appendex-pie .appendex-pie-content {
+    height: 341px;
+}
+.appendex-pie .appendex-pie-content .appendex-pie-right {
+    width: 110px;
+    line-height: 30px;
+}
+.appendex-sex {
+    width: 100%;
+    height: 271.5px;
+    background-image: url(../../reportimage/teamreport/appendex-sex.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.appendex-sex span{
+    color: white;
+    position: absolute;
+    text-align: center;
+}

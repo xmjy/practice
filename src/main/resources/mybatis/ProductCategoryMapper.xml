@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xm.jy.job_cx.dao.ProductCategoryMapper" >
+
+    <resultMap id="BaseResultMap" type="com.xm.jy.job_cx.model.ProductCategory">
+        <id column="category_id" property="categoryId" jdbcType="INTEGER" />
+        <id column="category_name" property="categoryName" jdbcType="VARCHAR" />
+        <id column="category_type" property="categoryType" jdbcType="INTEGER" />
+        <id column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <id column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <select id="selectByCategoryType" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select category_id, category_name, category_type
+        from product_category
+        where category_type = #{category_type, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectOne" resultMap="BaseResultMap">
+        select * from product_category where category_type = #{categoryType} and category_id = #{categoryId}
+    </select>
+
+    <select id="selectOneByObject" resultMap="BaseResultMap">
+        select * from product_category where category_type = #{categoryType} and category_id = #{categoryId}
+    </select>
+
+    <select id="selectOneByHashMap" resultMap="BaseResultMap">
+        select * from product_category where category_type = #{categoryType} and category_id = #{categoryId}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from product_category order by create_time asc limit #{pageSize} offset #{pageNum}
+    </select>
+
+    <select id="count" resultType="integer">
+        select count(1) from product_category;
+    </select>
+
+</mapper>

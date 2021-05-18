@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+<script>
+    function* generate() {
+        yield "0518";
+        yield* generate2();
+        yield "0519";
+    }
+
+    var iterator = generate();
+    for (var v of generate()){
+        if (v !== undefined) {
+            // console.log(v);
+        }
+    }
+
+    var item;
+    while (!(item = iterator.next()).done){
+        console.log(item.value);
+    }
+
+    function* generate2() {
+        yield "jump a queue";
+        yield "jump a queue";
+    }
+
+    function* generate3() {
+        let id = 0;
+        while (true){
+            yield ++id;
+        }
+    }
+
+    var iterator2 = generate3();
+    for (var i=0;i<10;i++){
+        console.log(iterator2.next());
+    }
+
+</script>
+</body>
+</html>

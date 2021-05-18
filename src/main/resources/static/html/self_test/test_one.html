@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="refresh" content="5;URL=test_two.html">
+    <title>Title</title>
+    <script src="../../js/jquery.min.js"></script>
+</head>
+<style>
+    #allThing{
+        width: 2000px;
+        height: 1000px;
+        background: beige;
+    }
+    #floatingLayer{
+        position: fixed;
+        top:45%;
+        left: 45%;
+        width:100px;
+        height:100px;
+        background: #edfbfb;
+        display: none;
+        z-index: 999;
+    }
+    #closeLayer{
+        display: inline-block;
+        width:15px;
+        height: 15px;
+        position: relative;
+        top: 0;
+        right: 0;
+        color: red;
+    }
+</style>
+<body>
+    <h1>这是第一个页面</h1>
+    <div id="allThing">
+        <button onclick="showLayerDiv()">everything on this div</button>
+        <div id="floatingLayer">
+            <span id="closeLayer" onclick="closeLayerDiv()">x</span>
+            hello,motto;
+        </div>
+    </div>
+    <input  name="0513" type="checkbox">
+    <button onclick="operateCheckbox()">操作文本框</button>
+    <label>
+        <input onclick="check(this)" value="23">
+    </label>
+    <br>
+    <input type="checkbox" name = 'checkClickTest' value="0">你是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="1">你才是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="2">不，我才是帅逼
+    <input type="checkbox" name = 'checkClickTest' value="3">好吧，大家都是帅逼
+<script>
+    var array = [];
+    function showLayerDiv() {
+        document.getElementById("floatingLayer").style.display = "block";
+    }
+    function closeLayerDiv() {
+        document.getElementById("floatingLayer").style.display = "none";
+    }
+    function check(val){
+        console.log(val.value);
+        console.log($(val).val());
+    }
+
+    Array.prototype.remove = function (val) {
+        var index = -1;
+        for (var i = 0 ;i < this.length; i++){
+            if (val === this[i]){
+                index = i;
+            }
+        }
+        if (index >= 0){
+            this.splice(index,1);
+        }
+
+    };
+
+    let click;
+    click = $("input[name='checkClickTest']").click(function () {
+        var flag = true;
+        if (array.length === 0){
+            array.push(this.value);
+        } else {
+            for (var i=0;i<array.length;i++){
+                if (this.value === array[i]){
+                    array.remove(this.value);
+                    flag = false;
+                }
+            }
+            if (flag){
+                array.push(this.value);
+            }
+        }
+
+    });
+
+    function operateCheckbox() {
+        if ($("input[name='0513']").attr("checked") == null ){
+            $("input[name='0513']").attr("checked","true");
+        } else {
+            $("input[name='0513']").attr("checked",null)
+        }
+    }
+</script>
+</body>
+</html>

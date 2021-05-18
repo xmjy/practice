@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义与参数</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<script>
+    var values = [1,2,3,7,6,9,4,5,12,10];
+    values.sort(function (value1,value2) { return value1 - value2 });
+    for (var i = 0;i<values.length;i++){
+        console.log(values[i]);
+    }
+
+    // 存储唯一函数集合，用对象作为缓存，在其中存储函数
+    var store = {
+        nextId:1,
+        cache:{},
+        add:function(fn){
+            // 假设fn函数有id属性则是被处理了，新的函数fn没有特殊定义是没有id属性的
+            // 新的fn函数，未被添加进来之前，默认fn.id = false;
+            if (!fn.id){
+                fn.id = this.nextId++;
+                this.cache[fn.id] = fn;
+                return true;
+            }
+        }
+    };
+    function ninjia() {
+
+    }
+    function nanjing() {}
+
+    assert(store.add(ninjia),"Function was safely added");
+    assert(store.add(ninjia),"But it was only added once");
+    assert(store.add(nanjing),"Function was safely added");
+    assert(store.add(nanjing),"But it was only added once");
+
+    // 计算先前得到的值
+    function isPrime(value){
+        // 创建缓存
+        if (!isPrime.answers){
+            isPrime.answers = {};
+        }
+        if (isPrime.answers[value] !== undefined) {
+            return isPrime.answers[value];
+        }
+        var prime = value !== 0 && value !== 1;
+        for(var i=2;i<value;i++){
+            if (value % i === 0){
+                prime = false;
+                break;
+            }
+        }
+        // 存储计算的值
+        return isPrime.answers[value] = prime;
+    }
+    assert(isPrime(5)," 5 is prime !");
+    assert(isPrime.answers[5],"The answer was cached !");
+
+
+    var callTest = function testCall(){
+        console.log("通过函数的引用变量来调用该函数");
+    };
+    callTest();
+
+    function formalParameters() {
+        console.log("通过将该函数名作为形参传入另一个函数，来调用该函数");
+    }
+    function callByFormalParameters(methodName){
+        methodName();
+    }
+    callByFormalParameters(formalParameters);
+</script>
+</body>
+</html>

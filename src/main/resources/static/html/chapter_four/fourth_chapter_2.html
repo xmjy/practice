@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数进阶：理解函数调用——函数调用</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+<ul id="results"></ul>
+<!--
+    作为一个函数（function）—— skulk(),直接被调用。
+    作为一个方法（method）—— ninja1.skulk(),关联在一个对象上，实现面向对象编程。
+    作为一个构造函数（constructor）—— new Ninja(),实例化一个新的对象。
+    通过函数的apply或者call方法 —— skulk.apply(ninja1)或者skulk.call(ninja1)。
+-->
+<script>
+    function skulk(name) {
+        return this;
+    }
+    function Ninja(name) {
+
+    }
+    // 作为函数调用
+    skulk('Hattori');
+    (function (who) {
+        return who;
+    })('Hattori');
+
+    var ninja = {
+        skulk: function () {
+
+        }
+    }
+    // 作为ninja 对象的一个方法调用
+    ninja.skulk('hattori');
+
+    // 作为构造函数调用
+    ninja = new Ninja('Hattori');
+
+    // 通过call方法调用
+    skulk.call(ninja,'Hattori');
+
+    // 通过apply方法调用
+    skulk.apply(ninja,['Hattori']);
+</script>
+<script>
+    // 1、直接调用
+    function useStrict(){
+        "use strict";
+        return this;
+    }
+    function notStrict() {
+        return this;
+    }
+    assert(useStrict() === undefined,"严格模式函数，函数的上下文是undefined");
+    assert(notStrict() === window,"非严格模式函数，函数的上下文是window对象");
+    assert(skulk() === window,"不传参，OK or not OK");
+
+    // 2、通过将函数赋给一个对象当做属性，作为方法调用
+    var ljy = {};
+    ljy.name = function (name) {
+        // 这个this指的是ljy这个对象。（面向对象编程之一）
+        console.log("我叫："+name+"，今年"+this.age+"岁");
+        return name;
+    };
+    ljy.age = 23;
+    ljy.name("林就远");
+
+    // 3、通过构造函数调用，需要使用到关键字 new，还有要注意的是：构造函数的首字母是大写的，不同于其他函数(行业默认规则)。
+    // 构造函数的目的：1、创建一个新的对象，并初始化；2、把创建的新对象进行返回。（任何不符合这两点的函数，不能用来做构造函数）
+    function Ninja() {
+        this.ninja = function () { // b:新的空对象被设置成构造函数的上下文（当前行的this）;c:为新对象新增一个方法，也就是该行的ninja()
+            return this; // e:新对象返回
+        };
+        return this;
+    }
+
+    var ninja1 = new Ninja(); // a:使用new关键字调用构造函数，来创建一个空对象
+    var ninja2 = new Ninja();
+
+    assert(ninja1.ninja() === ninja1,"对的没错，ninja1就是this" );
+    assert(ninja2.ninja() === ninja2,"对的没错，ninja2也是this");
+
+    // 构造函数自身有返回值的情况
+    assert(Ninja() === window,"构造函数自身有返回值的情况");
+
+    assert(typeof ninja1 === "object","是object类型");
+    assert(typeof ninja1.ninja == "function","是function类型");
+
+    // 显示返回对象值的构造函数
+    var puppet = {
+        rules: false
+    };
+
+    function Emperor() {
+        // 构造函数中对函数上下文操作都是无效的
+        this.rules = true;
+        return puppet;
+    }
+
+    var emperor = new Emperor();
+    assert(emperor === puppet,"Emperor的返回值就是全局对象puppet")
+    assert(emperor.rules === false,"emperor的rules属性值是false");
+</script>
+<script>
+    // 4、使用apply和call方法来设置函数上下文
+    function juggle() {
+        var result = 0;
+        for(var n = 0; n < arguments.length; n++){
+            result += arguments[n];
+        }
+        this.result = result;
+    }
+
+    // 创建两个空对象用于做测试
+    var ninja3 = {};
+    var ninja4 = {};
+    // 使用apply方法向ninja3传递一个参数数组
+    juggle.apply(ninja3,[1,2,3,4,5,6,7,8,9,10]);
+    // 使用call方法向ninja4传递一个参数列表
+    juggle.call(ninja4,1,2,3,4,5,6,7,8,9,10,11);
+
+    assert(ninja3.result === 55,"通过apply方式调用的result为55");
+    assert(ninja4.result === 66, "通过call方式调用的result为66");
+
+    // 总结：通过apply或是call方法调用函数，apply或call方法的第一个参数就是函数上下文，第二个参数是参数数组或参数列表。
+
+    // 实现forEach迭代方法展示如何设置函数上下文
+    function forEach(list,callback) {
+        for (var n = 0; n < list.length; n++){
+            callback.call(list[n],n);
+        }
+    }
+    var weapons = [
+        {type:'shuriken'},
+        {type:'katana'},
+        {type:'nunchucks'}
+    ];
+    forEach(weapons,function (index) {
+        assert(this === weapons[index],"weapons 的类型是"+weapons[index].type);
+    })
+</script>
+</body>
+</html>

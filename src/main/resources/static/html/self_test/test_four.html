@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="refresh" content="5">
+    <title>Title</title>
+    <script src="../../js/jquery.min.js"></script>
+</head>
+<style>
+    .f{
+        font-family: "Arial Black";
+    }
+</style>
+<body>
+
+<script>
+    $(function () {
+        createTable();
+    });
+    function createTable() {
+        var table = document.createElement('table');
+        var thead = document.createElement('thead');
+        var tbody = document.createElement('tbody');
+
+        // 表单头部thead部分
+        var tr_thead = document.createElement('tr');
+        for (var i=1;i<=4;i++){
+            var th = document.createElement('th');
+            th.textContent = "标题" + i + "号";
+            tr_thead.appendChild(th);
+        }
+        thead.appendChild(tr_thead);
+        table.appendChild(thead);
+        // 表单内容tbody部分
+        for (var k = 0;k<6;k++){
+            var tr_tbody = document.createElement('tr');
+            for (var j=1;j<=4;j++){
+                var td = document.createElement('td');
+                td.textContent = "我是第"+j+"个td";
+                tr_tbody.appendChild(td);
+            }
+            tbody.appendChild(tr_tbody);
+        }
+        table.appendChild(tbody);
+        table.border = "1";
+        table.style.color = "blue";
+        table.style.borderColor = "red";
+        document.body.appendChild(table);
+    }
+</script>
+</body>
+</html>

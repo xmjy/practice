@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xm.jy.job_cx.dao.STeamDimensionScoreMapper">
+  <resultMap id="BaseResultMap" type="com.xm.jy.job_cx.model.STeamDimensionScore">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="combination_id" jdbcType="VARCHAR" property="combinationId" />
+    <result column="dimension_id" jdbcType="BIGINT" property="dimensionId" />
+    <result column="average_score" jdbcType="DOUBLE" property="averageScore" />
+    <result column="level_score" jdbcType="VARCHAR" property="levelScore" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updatedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, combination_id, dimension_id, average_score, level_score, status, createDate, 
+    updateDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_team_dimension_score
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from s_team_dimension_score
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xm.jy.job_cx.model.STeamDimensionScore">
+    insert into s_team_dimension_score (id, combination_id, dimension_id, 
+      average_score, level_score, status, 
+      createDate, updateDate)
+    values (#{id,jdbcType=BIGINT}, #{combinationId,jdbcType=VARCHAR}, #{dimensionId,jdbcType=BIGINT}, 
+      #{averageScore,jdbcType=DOUBLE}, #{levelScore,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xm.jy.job_cx.model.STeamDimensionScore">
+    insert into s_team_dimension_score
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="combinationId != null">
+        combination_id,
+      </if>
+      <if test="dimensionId != null">
+        dimension_id,
+      </if>
+      <if test="averageScore != null">
+        average_score,
+      </if>
+      <if test="levelScore != null">
+        level_score,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="updatedate != null">
+        updateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="combinationId != null">
+        #{combinationId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionId != null">
+        #{dimensionId,jdbcType=BIGINT},
+      </if>
+      <if test="averageScore != null">
+        #{averageScore,jdbcType=DOUBLE},
+      </if>
+      <if test="levelScore != null">
+        #{levelScore,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xm.jy.job_cx.model.STeamDimensionScore">
+    update s_team_dimension_score
+    <set>
+      <if test="combinationId != null">
+        combination_id = #{combinationId,jdbcType=VARCHAR},
+      </if>
+      <if test="dimensionId != null">
+        dimension_id = #{dimensionId,jdbcType=BIGINT},
+      </if>
+      <if test="averageScore != null">
+        average_score = #{averageScore,jdbcType=DOUBLE},
+      </if>
+      <if test="levelScore != null">
+        level_score = #{levelScore,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        updateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xm.jy.job_cx.model.STeamDimensionScore">
+    update s_team_dimension_score
+    set combination_id = #{combinationId,jdbcType=VARCHAR},
+      dimension_id = #{dimensionId,jdbcType=BIGINT},
+      average_score = #{averageScore,jdbcType=DOUBLE},
+      level_score = #{levelScore,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      updateDate = #{updatedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

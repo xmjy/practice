@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <button style="width: 500px;height: 150px" onclick="getNowTime()">获取当前时间戳</button>
+
+    <script>
+        let test = "[{\"name\":\"&lt;&gt;/\?~!@#$%^&amp;*()_+|\"}]";
+        var parse = JSON.parse(test);
+        console.log(parse);
+
+        function transSpecialChar(str) {
+            if (str !== undefined && str !== "" && str !== 'null') {
+                str = str.replace(/\\/g, "\\\\");
+            }
+            return str;
+        }
+    </script>
+</body>
+</html>
