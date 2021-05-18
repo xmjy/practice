@@ -1,1 +1,0 @@
-INSERT INTO `seller_info`(`seller_id`, `username`, `password`, `openid`, `create_time`, `update_time`) VALUES ('1554122145727414146', '方翔鸣', 'xm970829', 'o9AREv8WgDU5-_l-qbwjn0b8bVfw', '2019-04-01 12:35:46', '2019-04-01 12:35:46');

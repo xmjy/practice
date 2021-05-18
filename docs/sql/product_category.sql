@@ -1,9 +1,0 @@
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (1, '热销', 1, '2019-04-01 12:13:48', '2019-04-01 12:17:15');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (2, '优惠', 2, '2019-04-01 12:18:20', '2019-04-01 12:18:20');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (3, '特价折扣', 3, '2019-04-01 12:22:17', '2019-04-01 12:22:17');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (4, '美味套餐', 4, '2019-04-01 12:24:42', '2019-04-01 12:24:42');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (5, '人气开胃套餐', 5, '2019-04-01 12:24:42', '2019-04-01 12:24:42');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (6, '养生甜粥品类', 6, '2019-04-01 12:24:42', '2019-04-23 08:46:21');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (7, '营养咸粥品类', 7, '2019-04-01 12:24:42', '2019-04-01 12:24:42');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (8, '阿尼哈撒哟', 8, '2019-04-02 11:58:58', '2020-04-26 13:15:31');
-INSERT INTO `product_category`(`category_id`, `category_name`, `category_type`, `create_time`, `update_time`) VALUES (9, '冰冰冰好甜好甜', 9, '2019-04-23 08:46:46', '2020-04-26 13:15:42');
