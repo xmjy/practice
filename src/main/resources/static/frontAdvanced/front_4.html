@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 600px;
+            height: 200px;
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <input id="firstInput">
+    <input id="secondInput">
+    <input id="thirdInput">
+    <textarea ></textarea>
+    <script>
+        // 键盘事件：keydown、keyup、keypress
+        document.querySelector('#firstInput').addEventListener('keydown',function (event) {
+            console.log(`在可输入文本的元素上按下任意键触发，本次按下了 ${event.key} —— keydown`);
+        });
+        document.querySelector('#secondInput').addEventListener('keyup',function (event) {
+            console.log(`在可输入文本的元素上按下任意键松开再触发，本次按下了 ${event.key} —— keyup`);
+        });
+        document.querySelector('#thirdInput').addEventListener('keypress',function (event) {
+            console.log(`在可输入文本的元素上按下任意键，不松开可连续触发，本次按下了 ${event.key} —— keypress`);
+        });
+        // 剪贴板事件: copy、paste、cut
+        document.querySelector('textarea').addEventListener('copy',function (event) {
+            console.log(`在可输入的文本元素上，选中文字再复制触发，本次复制了文本：${event.target.value.substring(event.target.selectionStart,event.target.selectionEnd)} —— copy`)
+        });
+        document.querySelector('textarea').addEventListener('paste',function (event) {
+            console.log("触发了剪贴板的粘贴事件")
+        });
+        document.querySelector('textarea').addEventListener('cut',function (event) {
+            console.log("触发了剪贴板的剪贴事件")
+        });
+        // 文本写作事件
+        document.querySelector('textarea').addEventListener('compositionupdate',function (event) {
+            console.log("文本写作事件，向文章中新增字符 —— compositionupdate")
+        });
+        document.querySelector('textarea').addEventListener('compositionend',function (event) {
+            console.log("文本写作事件，已经完成写作或取消了 —— compositionend")
+        });
+    </script>
+</body>
+</html>

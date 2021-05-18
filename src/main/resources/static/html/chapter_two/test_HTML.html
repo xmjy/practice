@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面构建过程</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/common.js"></script>
+</head>
+<body>
+    <a href="https://www.baidu.com" style="display: inline-block">click me to baidu</a><br>
+    <img id="picture" src="/static/images/156ebf18702957b0f8bc4bb7018c943.png">
+    <a onclick="changePic()">改变图片</a>
+    <img src="E:/downloads/images/qrcode/2/qr-code-85-207.jpg?t=0.0659018764292214" alt="" id="erweima" style="margin-top: -10px;">
+    <ul id = "first" style = "color:red"></ul>
+    <ul id = "four" style = "color:black"></ul>
+    <a href="https://www.runoob.com/try/try.php?filename=tryhtml5_a_download" download>下载</a>
+    <label>
+        <input id="xxx" placeholder="我是占位符">
+    </label>
+    <ul id="results"></ul>
+    <form>
+        <input required>
+        <input disabled>
+        <input readonly value="xm is handsome and have very very much money">
+        <button type="submit">提交</button>
+    </form>
+    <div style="height:2000px;"></div>
+    <a href="#">点击后回到该页面</a>
+    <a href="#results">点击后回到指定节点</a>
+    <a href="javascript:void(0)">this is a died link</a>
+    <script>
+        function changePic() {
+            document.getElementById("picture").setAttribute("src","../static/images/a4b9621331eb06e5af6324f0818e922.png");
+        }
+
+        // 监听鼠标在body点击事件
+        document.body.addEventListener("click",function () {
+            var second = document.createElement("li");
+            second.textContent = "今天是个好日子";
+            document.getElementById("first").appendChild(second);
+        });
+
+        // 监听鼠标在body移动事件
+        /*document.body.addEventListener("mousemove",function () {
+            var third = document.createElement("li");
+            third.textContent = "明天也是个好日子";
+            document.getElementById("four").appendChild(third);
+        })*/
+        function randomNum() {
+            return Math.random();
+        }
+    </script>
+    <script>
+        function addLi() {
+            $("#four").append("<li>我最傻</li>");
+            $("#four").append("<li>对的，你最傻，你就是个二傻子</li>");
+        }
+        addLi();
+    </script>
+    <script>
+        const ul = document.createElement("ul");
+        const li = document.createElement("li");
+        li.textContent = "通过js操作dom";
+        ul.appendChild(li);
+        document.body.appendChild(ul);
+    </script>
+    <script>
+        const ull = document.createElement("ul");
+        ull.innerHTML = "<li>通过node.innerHTML也能向某个节点插入另外一个节点</li>";
+        const div = document.createElement("div");
+        let html = "<div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' target='_self'>go to baidu</a></span></div>"
+        div.innerHTML = html;
+        document.body.appendChild(div);
+        document.write("<br><div style='height:200px;width:200px;'><span><a href='https://www.baidu.com' target='_self'>go to baidu</a></span></div>");
+        document.getElementById('results').innerHTML = "<li>通过node.innerHTML也能向某个节点插入另外一个节点</li>";
+        // 声明一个变量，但是未初始化，那么默认是undefined
+        var value;
+        var key;
+        // alert("声明但未被初始化的变量值是："+value);
+        // alert("声明但未被初始化的变量类型是："+typeof value);
+        // alert(typeof value);
+        assert(value === key,"声明但未被初始化的变量，值就是undefined");
+        assert(typeof value === undefined,"声明但未被初始化的变量，类型是undefined");
+        var arr = [1,2,3,4,5,6];
+        arr.push(7);
+        // for (var i = 0; i < arr.length; i++){
+        //     alert(arr[i]);
+        // }
+        // javascript类型
+        console.log(typeof 1);
+        console.log(typeof 'undefined');
+        console.log(typeof false);
+        console.log(typeof undefined);
+        console.log(typeof [1,2,3]);
+        console.log(typeof null);
+        console.log(typeof {});
+        // javascript 中对日期的操作
+        var date = new Date();
+
+        // 哪一年
+        console.log(date.getFullYear());
+        // 当年的所处月份（实际月份比当前月少一个月份，得加1）
+        console.log(date.getMonth());
+        // 每月的第几天，几号
+        console.log(date.getDate());
+        // 礼拜几
+        console.log(date.getDay());
+        // 哪个小时 24进制
+        console.log(date.getHours());
+        // 当前小时的第几分钟
+        console.log(date.getMinutes());
+        // 当前分钟的第几秒
+        console.log(date.getSeconds());
+        // 毫秒数，截取最后三位数
+        console.log(date.getMilliseconds());
+        // 从1970年1月1号至今的毫秒数
+        console.log(date.getTime());
+
+        // js中使用try,catch代码块
+        try{
+            window.fxm();
+        }catch (e) {
+            // alert(e);
+        }finally {
+            // alert("why???");
+        }
+
+        // let在代码块中声明使用，代码块外无用
+        {
+            let six = 6;
+        }
+        // 代码块外接触不到上面代码块中用let关键字声明的变量。
+        // console.log(six);
+        // const声明常量（声明变量的时候需要初始化且后续不能修改）
+        const finalValue = "can not change value and need init";
+
+        const finalObject = {
+            "name":"yoyoyo",
+            "age":"23"
+        };
+        // const修饰的对象，能够改该对象里的属性值
+        finalObject.name = "ljy";
+        console.log(finalObject);
+
+        // json对象和javascript对象的相互转换
+
+        // 首先:json对象转换javascript对象。JSON.parse(javascript对象)；
+        var text = '{ "sites" : [' +
+            '{ "name":"Runoob" , "url":"www.runoob.com" },' +
+            '{ "name":"Google" , "url":"www.google.com" },' +
+            '{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+        console.log(text);
+        // 将json字符串转成javascript对象
+        console.log(JSON.parse(text));
+        // 其次将javascript对象转换成json字符串
+        console.log(JSON.stringify(JSON.parse(text)));
+
+    </script>
+</body>
+</html>
